@@ -13,6 +13,10 @@ h1 {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
 #simulation {
     border: 1px solid black;
 }

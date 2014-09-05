@@ -16,14 +16,19 @@
 </head>
 
 <body>
-    <h1>Atom Simulation</h1>
-    <div id="controls">
-        <button type="button" onclick="sim.draw()">Draw Rectangles</button>
-    </div>
-    <canvas id="simulation">
-        A simulation of atoms.
-    </canvas>
+<h1>Atom Simulation</h1>
 
-    <script src="scripts.js"></script>
+<button id="show-controls" type="button" onclick="sim.toggle_controls()">Toggle Controls</button>
+<div id="controls">
+    <button type="button" onclick="sim.drawRectangles()">Draw Rectangles</button>
+    <label for="create-atom-number-input">Enter the number of atoms you would like to create:</label>
+    <input id="create-atom-number-input" type="text">
+    <button type="button" onclick="sim.createAtom()">Create Atom</button>
+</div>
+<canvas id="simulation">
+    A simulation of atoms.
+</canvas>
+
+<script src="scripts.js"></script>
 </body>
 </html>

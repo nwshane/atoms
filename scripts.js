@@ -4,7 +4,6 @@ sim = function () {
     // If canvas is unsupported...
     if ( !canvas.getContext ) {
         return {
-            // canvas unsupported code here
         }
     }
 
@@ -15,16 +14,37 @@ sim = function () {
     var h = ctx.canvas.height;
 
     return {
-        draw: function() {
+        toggle_controls: function() {
+            document.getElementById( 'controls' ).setAttribute( 'class', 'hidden' );
+        },
+
+        drawRectangles: function () {
             ctx.fillStyle = "rgb(200,0,0)";
             ctx.fillRect( .25 * w, .25 * h, .3 * w, .3 * h );
 
             ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
             ctx.fillRect( .75 * w, .75 * h, -.3 * w, -.3 * h );
+        },
 
-            ctx.beginPath();
-            ctx.arc( 100, 100, 20, 0, 2*Math.PI, true );
-            ctx.fill();
+        createAtom: function () {
+            var numberAtoms = document.getElementById( 'create-atom-number-input' ).value;
+
+            for (var i = 0; i<numberAtoms; i++) {
+                ctx.beginPath();
+
+                var radius = 20;
+
+                var minX = radius;
+                var maxX = w - radius;
+                var x = Math.random() * (1 + maxX - minX) + minX;
+
+                var minY = radius;
+                var maxY = h - radius;
+                var y = Math.random() * (1 + maxY - minY) + minY;
+
+                ctx.arc( x, y, radius, 0, 2 * Math.PI, true );
+                ctx.fill();
+            }
         }
     }
 }();
