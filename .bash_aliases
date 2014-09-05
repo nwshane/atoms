@@ -1,0 +1,1 @@
+alias as="cd /Users/django09/Dropbox/Programming/atomSimulation"
