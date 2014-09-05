@@ -21,6 +21,10 @@ sim = function () {
 
             ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
             ctx.fillRect( .75 * w, .75 * h, -.3 * w, -.3 * h );
+
+            ctx.beginPath();
+            ctx.arc( 100, 100, 20, 0, 2*Math.PI, true );
+            ctx.fill();
         }
     }
 }();
