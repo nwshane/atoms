@@ -15,8 +15,15 @@
     <![endif]-->
 </head>
 
-<body>
+<body onload="initialize()">
     <h1>Atom Simulation</h1>
+    <div id="controls">
+        <button type="button" onclick="draw()">Draw Rectangles</button>
+    </div>
+    <canvas id="simulation">
+        A simulation of atoms.
+    </canvas>
+
 
     <script src="scripts.js"></script>
 </body>
