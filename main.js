@@ -27,7 +27,7 @@ sim = function () {
         },
 
         createAtom: function () {
-            var numberAtoms = document.getElementById( 'create-atom-number-input' ).value;
+            var numberAtoms = $( '#create-atom-number-input' ).val();
 
             for (var i = 0; i<numberAtoms; i++) {
                 ctx.beginPath();
@@ -48,4 +48,5 @@ sim = function () {
         }
     }
 }();
+
 
