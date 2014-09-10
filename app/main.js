@@ -29,6 +29,7 @@ sim = function () {
         atoms: [],
         Atom: function() {
             this.radius = random( minRadius, maxRadius );
+            this.color = "rgb(0,0,0)";
 
             var minX = this.radius;
             var maxX = ctx.canvas.width - this.radius;
@@ -40,6 +41,7 @@ sim = function () {
 
             this.draw = function() {
                 ctx.beginPath();
+                ctx.fillStyle = this.color;
                 ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
                 ctx.fill();
             }
