@@ -18,12 +18,12 @@
 <body>
 <h1>Atom Simulation</h1>
 
-<button id="show-controls" type="button" onclick="sim.toggle_controls()">Toggle Controls</button>
+<button id="show-controls" type="button" onclick="controls.toggle()">Toggle Controls</button>
 <div id="controls">
-    <button type="button" onclick="sim.drawRectangles()">Draw Rectangles</button>
+    <button type="button" onclick="controls.drawRectangles()">Draw Rectangles</button>
     <label for="create-atom-number-input">Enter the number of atoms you would like to create:</label>
     <input id="create-atom-number-input" type="text">
-    <button type="button" onclick="sim.createAtom()">Create Atom</button>
+    <button type="button" onclick="controls.createAtom()">Create Atom</button>
 </div>
 <canvas id="simulation">
     A simulation of atoms.
