@@ -7,6 +7,9 @@ sim = function () {
         }
     }
 
+    var minRadius = 20;
+    var maxRadius = 20;
+
     var ctx = canvas.getContext( '2d' );
     ctx.canvas.width = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
@@ -15,16 +18,20 @@ sim = function () {
 
     var atoms = [];
 
+    function random( min, max ) {
+        return (Math.random() * (1 + max - min)) + min;
+    }
+
     function Atom() {
-        this.radius = 20;
+        this.radius = random( minRadius, maxRadius );
 
         var minX = this.radius;
         var maxX = w - this.radius;
-        this.x = Math.random() * (1 + maxX - minX) + minX;
+        this.x = random( minX, maxX );
 
         var minY = this.radius;
         var maxY = h - this.radius;
-        this.y = Math.random() * (1 + maxY - minY) + minY;
+        this.y = random( minY, maxY );
 
         this.draw = function() {
             ctx.beginPath();
