@@ -16,11 +16,17 @@ sim = function () {
     ctx.canvas.width = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
 
+    var interval;
+
     function random( min, max ) {
         return (Math.random() * (1 + max - min)) + min;
     }
 
     return {
+        ctx: ctx,
+        w: ctx.canvas.width,
+        h: ctx.canvas.height,
+        atoms: [],
         Atom: function() {
             this.radius = random( minRadius, maxRadius );
 
@@ -39,7 +45,12 @@ sim = function () {
             }
         },
 
-        atoms: []
+        beginInterval: function() {
+            this.interval = setInterval( 'controls.drawRectangles()', 1000 )
+        },
+        stopInterval: function() {
+            clearInterval(this.interval);
+        }
     }
 }();
 
