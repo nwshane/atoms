@@ -43,10 +43,21 @@ sim = function () {
                 ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
                 ctx.fill();
             }
-        },
 
+            this.move = function( x, y ) {
+                this.x += x;
+                this.y += y;
+            }
+        },
+        moveAtoms: function() {
+            ctx.clearRect( 0, 0, this.w, this.h );
+            for ( var i = 0; i < this.atoms.length; i++ ) {
+                this.atoms[i].move( 1, 1 );
+                this.atoms[i].draw();
+            }
+        },
         beginInterval: function() {
-            this.interval = setInterval( 'controls.drawRectangles()', 1000 )
+            this.interval = setInterval( 'sim.moveAtoms()', 10 );
         },
         stopInterval: function() {
             clearInterval(this.interval);
