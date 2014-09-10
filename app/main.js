@@ -1,5 +1,5 @@
 sim = function () {
-    var canvas = document.getElementById( 'simulation' );
+    var canvas = $( '#simulation').get(0);
 
     // If canvas is unsupported...
     if ( !canvas.getContext ) {
@@ -15,7 +15,7 @@ sim = function () {
 
     return {
         toggle_controls: function() {
-            document.getElementById( 'controls' ).setAttribute( 'class', 'hidden' );
+            $( '#controls' ).toggleClass( 'hidden' );
         },
 
         drawRectangles: function () {
