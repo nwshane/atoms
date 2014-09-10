@@ -13,6 +13,26 @@ sim = function () {
     var w = ctx.canvas.width;
     var h = ctx.canvas.height;
 
+    var atoms = [];
+
+    function Atom() {
+        this.radius = 20;
+
+        var minX = this.radius;
+        var maxX = w - this.radius;
+        this.x = Math.random() * (1 + maxX - minX) + minX;
+
+        var minY = this.radius;
+        var maxY = h - this.radius;
+        this.y = Math.random() * (1 + maxY - minY) + minY;
+
+        this.draw = function() {
+            ctx.beginPath();
+            ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
+            ctx.fill();
+        }
+    }
+
     return {
         toggle_controls: function() {
             $( '#controls' ).toggleClass( 'hidden' );
@@ -30,20 +50,9 @@ sim = function () {
             var numberAtoms = $( '#create-atom-number-input' ).val();
 
             for (var i = 0; i<numberAtoms; i++) {
-                ctx.beginPath();
-
-                var radius = 20;
-
-                var minX = radius;
-                var maxX = w - radius;
-                var x = Math.random() * (1 + maxX - minX) + minX;
-
-                var minY = radius;
-                var maxY = h - radius;
-                var y = Math.random() * (1 + maxY - minY) + minY;
-
-                ctx.arc( x, y, radius, 0, 2 * Math.PI, true );
-                ctx.fill();
+                var newAtom = new Atom();
+                atoms.push( newAtom );
+                newAtom.draw();
             }
         }
     }
