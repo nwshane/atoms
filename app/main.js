@@ -15,6 +15,17 @@ sim = function(){
     ctx.canvas.height = window.innerHeight;
 
     var interval;
+    var intervalLengthMs = 10;
+
+    function createNewInstance() {
+        ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
+
+        var atoms = atom.getAtoms();
+        for ( var i = 0; i < atoms.length; i++ ) {
+            atoms[i].move();
+            atoms[i].draw();
+        }
+    }
 
     return {
         getCtx: function() {
@@ -26,8 +37,11 @@ sim = function(){
         getH: function() {
             return ctx.canvas.height;
         },
+        getIntervalLengthMs: function() {
+            return intervalLengthMs;
+        },
         beginInterval: function() {
-            interval = setInterval( 'atom.moveAtoms()', 10 );
+            interval = setInterval( createNewInstance, intervalLengthMs );
         },
         stopInterval: function() {
             clearInterval( interval );

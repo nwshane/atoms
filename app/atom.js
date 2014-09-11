@@ -38,15 +38,9 @@ atom = function() {
             }
 
             this.move = function() {
-                this.x += 0.01 * this.speed * Math.cos( this.direction );
-                this.y += 0.01 * this.speed * Math.sin( this.direction );
-            }
-        },
-        moveAtoms: function() {
-            sim.getCtx().clearRect( 0, 0, sim.getW(), sim.getH() );
-            for ( var i = 0; i < atoms.length; i++ ) {
-                atoms[i].move();
-                atoms[i].draw();
+                var intervalLengthMs = sim.getIntervalLengthMs();
+                this.x += intervalLengthMs/1000 * this.speed * Math.cos( this.direction );
+                this.y += intervalLengthMs/1000 * this.speed * Math.sin( this.direction );
             }
         }
     }
