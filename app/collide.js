@@ -4,22 +4,22 @@ collide = function() {
     function collideWall( atom1 ) {
         // Left wall
         if ( atom1.x - atom1.radius < 0 ) {
-            atom1.direction = Math.PI - atom1.direction;
+            atom1.changeDirection( Math.PI - atom1.direction );
         }
 
         // Right wall
         if ( atom1.x + atom1.radius > sim.getW() ) {
-            atom1.direction = Math.PI - atom1.direction;
+            atom1.changeDirection( Math.PI - atom1.direction );
         }
 
         // Top wall
         if ( atom1.y - atom1.radius < 0 ) {
-            atom1.direction = -1 * atom1.direction;
+            atom1.changeDirection( -1 * atom1.direction );
         }
 
         // Bottom wall
         if ( atom1.y + atom1.radius > sim.getH() ) {
-            atom1.direction = -1 * atom1.direction;
+            atom1.changeDirection( -1 * atom1.direction );
         }
     }
 

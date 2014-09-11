@@ -30,6 +30,18 @@ atom = function() {
             var maxY = sim.getH() - this.radius;
             this.y = random( minY, maxY );
 
+            this.changeDirection = function( newDirection ) {
+                this.direction = newDirection;
+
+                while ( this.direction < 0 ) {
+                    this.direction += Math.PI * 2;
+                }
+
+                while ( this.direction > Math.PI * 2 ) {
+                    this.direction -= Math.PI * 2;
+                }
+            }
+
             this.draw = function() {
                 var ctx = sim.getCtx();
                 ctx.beginPath();
