@@ -9,6 +9,7 @@ sim = function(){
 
     $.getScript( 'app/atom.js' );
     $.getScript( 'app/controls.js' );
+    $.getScript( 'app/collide.js' );
 
     var ctx = canvas.getContext( '2d' );
     ctx.canvas.width = window.innerWidth;
@@ -19,14 +20,8 @@ sim = function(){
 
     function createNewInstance() {
         ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
-        atom.collide();
+        collide.collide();
         atom.moveAtoms();
-
-
-
-
-
-
     }
 
     return {
