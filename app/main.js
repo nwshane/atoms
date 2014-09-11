@@ -7,9 +7,12 @@ sim = function(){
         }
     }
 
-    $.getScript( 'app/atom.js' );
-    $.getScript( 'app/controls.js' );
-    $.getScript( 'app/collide.js' );
+    var baseUrl = 'app/';
+    var requiredFiles = [ 'atom.js', 'controls.js', 'collide.js' ];
+
+    for ( var i = 0; i < requiredFiles.length; i++ ) {
+        $.getScript( baseUrl + requiredFiles[i] );
+    }
 
     var ctx = canvas.getContext( '2d' );
     ctx.canvas.width = window.innerWidth;
