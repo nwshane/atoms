@@ -3,6 +3,8 @@ atom = function() {
         return (Math.random() * (1 + max - min)) + min;
     }
 
+    var atoms = [];
+
     var minRadius = 20;
     var maxRadius = 20;
 
@@ -10,7 +12,9 @@ atom = function() {
     var maxSpeed = 150;
 
     return {
-        atoms: [],
+        getAtoms: function() {
+            return atoms;
+        },
         Atom: function() {
             this.radius = random( minRadius, maxRadius );
             this.color = "rgb(0,0,0)";
@@ -40,9 +44,9 @@ atom = function() {
         },
         moveAtoms: function() {
             sim.getCtx().clearRect( 0, 0, sim.getW(), sim.getH() );
-            for ( var i = 0; i < this.atoms.length; i++ ) {
-                this.atoms[i].move();
-                this.atoms[i].draw();
+            for ( var i = 0; i < atoms.length; i++ ) {
+                atoms[i].move();
+                atoms[i].draw();
             }
         }
     }

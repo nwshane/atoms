@@ -30,7 +30,7 @@ controls = function() {
 
             for (var i = 0; i<numberAtoms; i++) {
                 var newAtom = new atom.Atom();
-                atom.atoms.push( newAtom );
+                atom.getAtoms().push( newAtom );
                 newAtom.draw();
             }
         }
