@@ -42,6 +42,27 @@ atom = function() {
                 this.x += intervalLengthMs/1000 * this.speed * Math.cos( this.direction );
                 this.y += intervalLengthMs/1000 * this.speed * Math.sin( this.direction );
             }
+        },
+        collideWall: function( atom ) {
+            // Left wall
+            if ( atom.x - atom.radius < 0 ) {
+                atom.direction = Math.PI - atom.direction;
+            }
+        },
+        collide: function() {
+            for (var i = 0; i < atoms.length; i++ ) {
+                var atom1 = atoms[i]
+
+                this.collideWall( atom1 );
+
+
+            }
+        },
+        moveAtoms: function() {
+            for ( var i = 0; i < atoms.length; i++ ) {
+                atoms[i].move();
+                atoms[i].draw();
+            }
         }
     }
 }();

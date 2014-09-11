@@ -19,12 +19,14 @@ sim = function(){
 
     function createNewInstance() {
         ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
+        atom.collide();
+        atom.moveAtoms();
 
-        var atoms = atom.getAtoms();
-        for ( var i = 0; i < atoms.length; i++ ) {
-            atoms[i].move();
-            atoms[i].draw();
-        }
+
+
+
+
+
     }
 
     return {
