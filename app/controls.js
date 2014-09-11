@@ -26,8 +26,8 @@ controls = function() {
             var numberAtoms = $( '#create-atom-number-input' ).val();
 
             for (var i = 0; i<numberAtoms; i++) {
-                var newAtom = new sim.Atom();
-                sim.atoms.push( newAtom );
+                var newAtom = new atom.Atom();
+                atom.atoms.push( newAtom );
                 newAtom.draw();
             }
         }
