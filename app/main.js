@@ -17,10 +17,15 @@ sim = function(){
     var interval;
 
     return {
-        ctx: ctx,
-        w: ctx.canvas.width,
-        h: ctx.canvas.height,
-
+        getCtx: function() {
+            return ctx;
+        },
+        getW: function() {
+            return ctx.canvas.width;
+        },
+        getH: function() {
+            return ctx.canvas.height;
+        },
         beginInterval: function() {
             interval = setInterval( 'atom.moveAtoms()', 10 );
         },

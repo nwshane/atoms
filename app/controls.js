@@ -15,11 +15,14 @@ controls = function() {
         },
 
         drawRectangles: function () {
-            sim.ctx.fillStyle = "rgb(200,0,0)";
-            sim.ctx.fillRect( .25 * sim.w, .25 * sim.h, .3 * sim.w, .3 * sim.h );
+            var ctx = sim.getCtx();
+            var w = sim.getW();
+            var h = sim.getH();
+            ctx.fillStyle = "rgb(200,0,0)";
+            ctx.fillRect( .25 * w, .25 * h, .3 * w, .3 * h );
 
-            sim.ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-            sim.ctx.fillRect( .75 * sim.w, .75 * sim.h, -.3 * sim.w, -.3 * sim.h );
+            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            ctx.fillRect( .75 * w, .75 * h, -.3 * w, -.3 * h );
         },
 
         createAtom: function () {

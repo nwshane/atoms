@@ -18,18 +18,19 @@ atom = function() {
             this.direction = random( 0, 2 * Math.PI );
 
             var minX = this.radius;
-            var maxX = sim.w - this.radius;
+            var maxX = sim.getW() - this.radius;
             this.x = random( minX, maxX );
 
             var minY = this.radius;
-            var maxY = sim.h - this.radius;
+            var maxY = sim.getH() - this.radius;
             this.y = random( minY, maxY );
 
             this.draw = function() {
-                sim.ctx.beginPath();
-                sim.ctx.fillStyle = this.color;
-                sim.ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
-                sim.ctx.fill();
+                var ctx = sim.getCtx();
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
+                ctx.fill();
             }
 
             this.move = function() {
@@ -38,7 +39,7 @@ atom = function() {
             }
         },
         moveAtoms: function() {
-            sim.ctx.clearRect( 0, 0, sim.w, sim.h );
+            sim.getCtx().clearRect( 0, 0, sim.getW(), sim.getH() );
             for ( var i = 0; i < this.atoms.length; i++ ) {
                 this.atoms[i].move();
                 this.atoms[i].draw();
