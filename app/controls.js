@@ -1,3 +1,5 @@
+//# sourceURL=controls.js
+
 controls = function() {
     return {
         toggle: function() {

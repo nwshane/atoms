@@ -1,9 +1,12 @@
+//# sourceURL=atom.js
+
 atom = function() {
     var atoms = [];
 
     var minRadius = 20;
     var maxRadius = 20;
 
+    // Speed is given in pixels/second
     var minSpeed = 50;
     var maxSpeed = 150;
 
