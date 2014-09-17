@@ -1,6 +1,4 @@
-//# sourceURL=atom.js
-
-atom = function() {
+define([ 'sim' ], function( sim ) {
     var atoms = [];
 
     var minRadius = 20;
@@ -72,4 +70,4 @@ atom = function() {
             return Math.sqrt( xDist * xDist + yDist * yDist );
         }
     }
-}();
+});

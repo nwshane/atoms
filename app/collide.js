@@ -1,6 +1,4 @@
-//# sourceURL=collide.js
-
-collide = function() {
+define([ 'atom' ], function( atom ) {
     function collideWall( atom1 ) {
         // Left wall
         if ( atom1.x - atom1.radius < 0 ) {
@@ -169,4 +167,4 @@ collide = function() {
             }
         }
     }
-}();
+});
