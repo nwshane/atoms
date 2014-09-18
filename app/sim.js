@@ -1,4 +1,4 @@
-define([ 'jquery', 'atom', 'collide' ], function( $, atom, collide ){
+define([ 'jquery' ], function( $ ){
     var canvas = $( '#simulation' ).get(0);
 
     // If canvas is unsupported...
@@ -11,14 +11,7 @@ define([ 'jquery', 'atom', 'collide' ], function( $, atom, collide ){
     ctx.canvas.width = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
 
-    var interval;
     var intervalLengthMs = 10;
-
-    function createNewInstance() {
-        ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
-        collide.collide();
-        atom.moveAtoms();
-    }
 
     return {
         getCtx: function() {
@@ -32,12 +25,6 @@ define([ 'jquery', 'atom', 'collide' ], function( $, atom, collide ){
         },
         getIntervalLengthMs: function() {
             return intervalLengthMs;
-        },
-        beginInterval: function() {
-            interval = setInterval( createNewInstance, intervalLengthMs );
-        },
-        stopInterval: function() {
-            clearInterval( interval );
         }
     }
 });

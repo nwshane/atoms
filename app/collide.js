@@ -1,4 +1,4 @@
-define([ 'atom' ], function( atom ) {
+define([ 'atom', 'sim' ], function( atom, sim ) {
     function collideWall( atom1 ) {
         // Left wall
         if ( atom1.x - atom1.radius < 0 ) {

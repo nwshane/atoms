@@ -5,4 +5,4 @@ requirejs.config({
     }
 });
 
-require([ 'jquery', 'atom', 'controls' ], function( $, atom, controls ) {});
+require([ 'jquery', 'atom', 'controls' ]);

@@ -1,14 +1,31 @@
-define([ 'jquery', 'sim', 'atom' ], function( $, sim, atom ) {
+define([ 'jquery', 'sim', 'atom', 'collide' ], function( $, sim, atom, collide ) {
     $('#show-controls').click(function(){
         $( '#controls' ).toggleClass( 'hidden' );
     });
 
+    var interval;
+
+    function createNewInstance() {
+        var ctx = sim.getCtx();
+        ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
+        collide.collide();
+        atom.moveAtoms();
+    }
+
+    function beginInterval() {
+        interval = setInterval( createNewInstance, sim.getIntervalLengthMs() );
+    }
+
+    function stopInterval() {
+        clearInterval( interval );
+    }
+
     $('#play-pause').click(function(){
         if ( $( event.target ).text() === 'Play Simulation' ) {
-            sim.beginInterval();
+            beginInterval();
             $( event.target ).text( 'Pause Simulation' );
         } else {
-            sim.stopInterval();
+            stopInterval();
             $( event.target).text( 'Play Simulation' );
         }
     });
