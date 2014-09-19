@@ -43,10 +43,11 @@ define([ 'jquery', 'sim', 'atom', 'collide' ], function( $, sim, atom, collide )
 
     $('#create-atoms').click(function(){
         var numberAtoms = $( '#create-atom-number-input' ).val();
+        var atoms = atom.getAtoms();
 
         for (var i = 0; i<numberAtoms; i++) {
-            var newAtom = new atom.Atom();
-            atom.getAtoms().push( newAtom );
+            var newAtom = new atom.Atom( atoms.length + 1 );
+            atoms.push( newAtom );
             newAtom.draw();
         }
     });

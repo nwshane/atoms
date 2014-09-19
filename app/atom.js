@@ -16,7 +16,8 @@ define([ 'sim' ], function( sim ) {
         getAtoms: function() {
             return atoms;
         },
-        Atom: function() {
+        Atom: function( atomNum ) {
+            this.num = atomNum;
             this.radius = random( minRadius, maxRadius );
             this.mass = Math.PI * this.radius * this.radius;
             this.color = "rgb(0,0,0)";
@@ -49,6 +50,8 @@ define([ 'sim' ], function( sim ) {
                 ctx.fillStyle = this.color;
                 ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
                 ctx.fill();
+                ctx.fillStyle = 'white';
+                ctx.fillText( this.num, this.x, this.y )
             };
 
             this.move = function() {
