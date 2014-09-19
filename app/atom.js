@@ -17,20 +17,36 @@ define([ 'sim' ], function( sim ) {
             return atoms;
         },
         Atom: function( atomNum ) {
-            this.num = atomNum;
-            this.radius = random( minRadius, maxRadius );
-            this.mass = Math.PI * this.radius * this.radius;
-            this.color = "rgb(0,0,0)";
-            this.speed = random ( minSpeed, maxSpeed );
-            this.direction = random( 0, 2 * Math.PI );
+            this.setRandomPosition = function() {
+                var minX = this.radius;
+                var maxX = sim.getW() - this.radius;
+                this.x = random( minX, maxX );
 
-            var minX = this.radius;
-            var maxX = sim.getW() - this.radius;
-            this.x = random( minX, maxX );
+                var minY = this.radius;
+                var maxY = sim.getH() - this.radius;
+                this.y = random( minY, maxY );
+            }
 
-            var minY = this.radius;
-            var maxY = sim.getH() - this.radius;
-            this.y = random( minY, maxY );
+            this.distanceFrom = function( atom2 ) {
+                var xDist = this.x - atom2.x;
+                var yDist = this.y - atom2.y;
+
+                return Math.sqrt( xDist * xDist + yDist * yDist );
+            }
+
+            this.overlapsWith = function( atom2 ) {
+                return (( this.radius + atom2.radius ) > this.distanceFrom( atom2 ));
+            }
+
+            this.checkNoOverlap = function() {
+                for ( var i = 0; i < atoms.length; i++ ) {
+                    if ( this.overlapsWith( atoms[i] )) {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
 
             this.changeDirection = function( newDirection ) {
                 this.direction = newDirection;
@@ -59,18 +75,33 @@ define([ 'sim' ], function( sim ) {
                 this.x += intervalLengthMs/1000 * this.speed * Math.cos( this.direction );
                 this.y += intervalLengthMs/1000 * this.speed * Math.sin( this.direction );
             };
+
+            this.num = atomNum;
+            this.radius = random( minRadius, maxRadius );
+            this.mass = Math.PI * this.radius * this.radius;
+            this.color = "rgb(0,0,0)";
+            this.speed = random ( minSpeed, maxSpeed );
+            this.direction = random( 0, 2 * Math.PI );
+
+            var overlaps = true;
+            var numTries = 0
+            while ( overlaps ) {
+                numTries++;
+                if ( numTries === 100 ) {
+                    throw 'Not enough space for another atom.';
+                }
+                this.setRandomPosition();
+
+                if ( this.checkNoOverlap() ) {
+                    overlaps = false;
+                }
+            }
         },
         moveAtoms: function() {
             for ( var i = 0; i < atoms.length; i++ ) {
                 atoms[i].move();
                 atoms[i].draw();
             }
-        },
-        distance: function( atom1, atom2 ) {
-            var xDist = atom1.x - atom2.x;
-            var yDist = atom1.y - atom2.y;
-
-            return Math.sqrt( xDist * xDist + yDist * yDist );
         }
     }
 });

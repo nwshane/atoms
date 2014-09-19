@@ -21,10 +21,6 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
         }
     }
 
-    function checkAtomOverlap( atom1, atom2 ) {
-        return (( atom1.radius + atom2.radius ) > atom.distance( atom1, atom2 ));
-    }
-
     function atomCollision( atom1, atom2 ) {
         var mass1 = atom1.mass;
         var mass2 = atom2.mass;
@@ -160,7 +156,7 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
                 // Compare the location of every atom to every other atom to check whether two atoms are colliding
                 for ( var j = i + 1; j < atoms.length; j++ ) {
                     var atom2 = atoms[j];
-                    if ( checkAtomOverlap( atom1, atom2 ) ) {
+                    if ( atom1.overlapsWith( atom2 ) ) {
                         atomCollision( atom1, atom2 );
                     }
                 }

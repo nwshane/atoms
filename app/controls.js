@@ -46,7 +46,13 @@ define([ 'jquery', 'sim', 'atom', 'collide' ], function( $, sim, atom, collide )
         var atoms = atom.getAtoms();
 
         for (var i = 0; i<numberAtoms; i++) {
-            var newAtom = new atom.Atom( atoms.length + 1 );
+
+            try {
+                var newAtom = new atom.Atom( atoms.length + 1 );
+            } catch( error ) {
+                alert( 'Error: ' + error );
+                return;
+            }
             atoms.push( newAtom );
             newAtom.draw();
         }
