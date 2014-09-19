@@ -26,11 +26,10 @@ canvas {
 
 #controls {
     position: absolute;
-    top: 10%;
-    left: .5em;
+    top: 50px;
+    left: 1em;
     width: 100px;
 }
-
 
 .hidden {
     display: none;

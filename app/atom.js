@@ -87,7 +87,7 @@ define([ 'sim' ], function( sim ) {
             var numTries = 0
             while ( overlaps ) {
                 numTries++;
-                if ( numTries === 100 ) {
+                if ( numTries === 10000 ) {
                     throw 'Not enough space for another atom.';
                 }
                 this.setRandomPosition();
