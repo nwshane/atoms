@@ -1,4 +1,4 @@
-define([ 'jquery', 'sim', 'atom', 'collide' ], function( $, sim, atom, collide ) {
+define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom, collide, display ) {
     $('#show-controls').click(function(){
         $( '#togglable-controls' ).toggleClass( 'hidden' );
     });
@@ -10,6 +10,7 @@ define([ 'jquery', 'sim', 'atom', 'collide' ], function( $, sim, atom, collide )
         collide.collide();
         ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
         atom.moveAtoms();
+        display.update();
     }
 
     function beginInterval() {
