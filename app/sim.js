@@ -1,5 +1,5 @@
 define([ 'jquery' ], function( $ ){
-    var canvas = $( '#simulation' ).get(0);
+    var canvas = $( 'canvas' ).get(0);
 
     // If canvas is unsupported...
     if ( !canvas.getContext ) {

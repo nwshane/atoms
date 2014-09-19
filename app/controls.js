@@ -1,6 +1,6 @@
 define([ 'jquery', 'sim', 'atom', 'collide' ], function( $, sim, atom, collide ) {
     $('#show-controls').click(function(){
-        $( '#controls' ).toggleClass( 'hidden' );
+        $( '#togglable-controls' ).toggleClass( 'hidden' );
     });
 
     var interval;
@@ -28,17 +28,6 @@ define([ 'jquery', 'sim', 'atom', 'collide' ], function( $, sim, atom, collide )
             stopInterval();
             $( event.target).text( 'Play Simulation' );
         }
-    });
-
-    $('#draw-rectangles').click(function(){
-        var ctx = sim.getCtx();
-        var w = sim.getW();
-        var h = sim.getH();
-        ctx.fillStyle = "rgb(200,0,0)";
-        ctx.fillRect( .25 * w, .25 * h, .3 * w, .3 * h );
-
-        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-        ctx.fillRect( .75 * w, .75 * h, -.3 * w, -.3 * h );
     });
 
     $('#create-atoms').click(function(){

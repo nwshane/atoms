@@ -4,19 +4,35 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
+    position: relative;
 
     /* No scroll bars */
     overflow: hidden;
 }
 
 h1 {
-    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    position: absolute;
+    top: .5em;
+    left: .5em;
 }
+
+canvas {
+    border: 1px solid black;
+    position: fixed;
+    position: absolute;
+}
+
+#controls {
+    position: absolute;
+    top: 10%;
+    left: .5em;
+    width: 100px;
+}
+
 
 .hidden {
     display: none;
 }
 
-#simulation {
-    border: 1px solid black;
-}

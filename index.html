@@ -13,23 +13,23 @@
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script data-main="app/main" src="bower_components/requirejs/require.js"></script>
 </head>
 
 <body>
+
 <h1>Atom Simulation</h1>
 
-<button id="show-controls" type="button">Toggle Controls</button>
-<div id="controls">
-    <button id="play-pause" type="button">Play Simulation</button>
-    <button id="draw-rectangles" type="button">Draw Rectangles</button>
-    <label for="create-atom-number-input">Enter the number of atoms you would like to create:</label>
-    <input id="create-atom-number-input" type="text">
-    <button id="create-atoms" type="button">Create Atom</button>
-</div>
-<canvas id="simulation">
-    A simulation of atoms.
-</canvas>
+<canvas>A simulation of atoms.</canvas>
 
+<div id="controls">
+    <button id="show-controls" type="button">Toggle Controls</button>
+    <div id="togglable-controls">
+        <button id="play-pause" type="button">Play Simulation</button>
+        <button id="create-atoms" type="button">Create Atoms:</button>
+        <input id="create-atom-number-input" type="text" size="2">
+    </div>
+</div>
+
+<script data-main="app/main" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>
