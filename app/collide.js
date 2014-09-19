@@ -47,7 +47,7 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
         var forceDirection1 = Math.atan(( atom1.y - atom2.y )/( atom1.x - atom2.x ));
 
         if ( atom1.x - atom2.x < 0 ) {
-            forceDirection1 += 180;
+            forceDirection1 += Math.PI;
         }
 
         /**
@@ -75,11 +75,11 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
          frame of reference.
          */
 
-        var modInitialXVelocity1 = Math.cos( modInitialDirection1 * initialSpeed1 );
-        var modInitialYVelocity1 = Math.sin( modInitialDirection1 * initialSpeed1 );
+        var modInitialXVelocity1 = Math.cos( modInitialDirection1 ) * initialSpeed1;
+        var modInitialYVelocity1 = Math.sin( modInitialDirection1 ) * initialSpeed1;
 
-        var modInitialXVelocity2 = Math.cos( modInitialDirection2 * initialSpeed2 );
-        var modInitialYVelocity2 = Math.sin( modInitialDirection2 * initialSpeed2 );
+        var modInitialXVelocity2 = Math.cos( modInitialDirection2) * initialSpeed2;
+        var modInitialYVelocity2 = Math.sin( modInitialDirection2) * initialSpeed2;
 
         /**
          4. Find the velocities of the atoms after the collision. The y-velocities stay the
@@ -93,7 +93,7 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
          */
 
         var modFinalXVelocity1 = ( modInitialXVelocity1 * ( mass1 - mass2 ) + 2 * mass2 * modInitialXVelocity2 )/( mass1 + mass2 );
-        var modFinalXVelocity2 = ( modInitialXVelocity2 * ( mass2-mass1 ) + 2 * mass1 * ( modInitialXVelocity1 ))/( mass2 + mass1 );
+        var modFinalXVelocity2 = ( modInitialXVelocity2 * ( mass2 - mass1 ) + 2 * mass1 * ( modInitialXVelocity1 ))/( mass2 + mass1 );
 
         /**
          5. Use the new velocities of the atoms to find the final directions in this frame of
