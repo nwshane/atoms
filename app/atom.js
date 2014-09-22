@@ -16,6 +16,15 @@ define([ 'sim' ], function( sim ) {
         getAtoms: function() {
             return atoms;
         },
+        getAtomNumber: function( num ) {
+            for ( var i = 0; i < atoms.length; i++ ) {
+                if ( atoms[i].num === num ) {
+                    return atoms[i];
+                }
+            }
+
+            throw 'Atom #' + num + ' does not exist.';
+        },
         Atom: function( atomNum ) {
             this.setRandomPosition = function() {
                 var minX = this.radius;
