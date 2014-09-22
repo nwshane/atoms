@@ -21,7 +21,7 @@
 
 <canvas>A simulation of atoms.</canvas>
 
-<div id="panel">
+<div id="controls" class="panel">
     <button id="show-controls" type="button">Toggle Controls</button>
     <div id="togglable-controls">
         <button id="play-pause" type="button">Play Simulation</button>
@@ -29,16 +29,15 @@
         <button id="create-atoms" type="button">Create Atoms:</button>
         <input id="create-atom-number-input" type="text" size="2">
     </div>
+</div>
 
-    <div id="atom-display">
-        <button id="select-atom" type="button">Select Atom Number:</button>
-        <input id="select-atom-number-input" type="text" size="2">
-        <br>
+<div id="display" class="panel">
+    <button id="select-atom" type="button">Select Atom Number:</button>
+    <input id="select-atom-number-input" type="text" size="2">
+    <div id="atom-display" class="hidden">
         <label for="selected-atom-direction">Direction: </label><span id="selected-atom-direction"></span>
     </div>
 </div>
-
-
 
 <script data-main="app/main" src="bower_components/requirejs/require.js"></script>
 </body>

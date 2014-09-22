@@ -7,6 +7,8 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
         } catch( error ) {
             alert( 'Error: ' + error );
         }
+
+        $('#atom-display').removeClass( 'hidden' )
     }
 
     $('#select-atom').click( function() {
@@ -15,11 +17,7 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
 
     return {
         update: function() {
-            if ( selectedAtom ) {
-                $( '#selected-atom-direction').text( selectedAtom.direction );
-            } else{
-                $( '#selected-atom-direction').text( 'Unselected' );
-            }
+            $( '#selected-atom-direction').text( selectedAtom.direction );
         }
     }
 });
