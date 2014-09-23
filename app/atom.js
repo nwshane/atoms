@@ -91,6 +91,7 @@ define([ 'sim' ], function( sim ) {
             this.color = "rgb(0,0,0)";
             this.speed = random ( minSpeed, maxSpeed );
             this.direction = random( 0, 2 * Math.PI );
+            this.selected = false;
 
             var overlaps = true;
             var numTries = 0

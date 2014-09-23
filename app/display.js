@@ -1,23 +1,55 @@
 define([ 'jquery', 'atom' ], function( $, atom ) {
-    var selectedAtom = atom.getAtoms()[0];
-
     function selectAtom( num ) {
         try {
-            selectedAtom = atom.getAtomNumber( num )
+            var success = true;
+            atom.getAtomNumber( num ).selected = true;
         } catch( error ) {
+            success = false;
             alert( 'Error: ' + error );
-        }
+        } if ( success ) {
+            var atoms = atom.getAtoms();
 
-        $('#atom-display').removeClass( 'hidden' )
+            // Unselect previously selected atoms
+            for ( var i = 0; i < atoms.length; i++ ) {
+                if ( atoms[i].selected ) {
+                    if (atoms[i].num !== num ) {
+                        atoms[i].selected = false;
+                    }
+                }
+            }
+
+            $('#atom-display').removeClass( 'hidden' );
+            updateDisplay();
+        }
     }
 
     $('#select-atom').click( function() {
         selectAtom( parseInt( $('#select-atom-number-input').val() ));
     });
 
-    return {
-        update: function() {
-            $( '#selected-atom-direction').text( selectedAtom.direction );
+    function updateDisplayProperty( selectedAtom, property ) {
+        var value = selectedAtom[property];
+        if (property === 'direction') {
+            value = value * ( 180 / Math.PI )
+        }
+        $( '#selected-atom-' + property ).text( Math.round( value ));
+    }
+
+    function updateDisplay() {
+        var propertiesToUpdate = [ 'num', 'radius', 'mass', 'direction', 'speed', 'color' ]
+        var atoms = atom.getAtoms();
+
+        // Update display with properties of selected atom
+        for ( var i = 0; i < atoms.length; i++ ) {
+            if ( atoms[i].selected ) {
+                for (var j = 0; j < propertiesToUpdate.length; j++ ) {
+                    updateDisplayProperty( atoms[i], propertiesToUpdate[j] )
+                }
+            }
         }
     }
+
+    return {
+        update: updateDisplay()
+    };
 });
