@@ -27,6 +27,13 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
         selectAtom( parseInt( $('#select-atom-number-input').val() ));
     });
 
+    $('canvas')[0].addEventListener('click', function(event) {
+        var x = event.pageX;
+        var y = event.pageY;
+
+        alert('clicked at ' + x + ', ' + y)
+    }, false)
+
     function updateDisplayProperty( selectedAtom, property ) {
         var value = selectedAtom[property];
         if (property === 'direction') {
@@ -36,7 +43,7 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
     }
 
     function updateDisplay() {
-        var propertiesToUpdate = [ 'num', 'radius', 'mass', 'direction', 'speed', 'color' ]
+        var propertiesToUpdate = [ 'num', 'radius', 'mass', 'direction', 'speed' ]
         var atoms = atom.getAtoms();
 
         // Update display with properties of selected atom
