@@ -14,7 +14,7 @@ html, body {
 hgroup {
     margin: 0;
     position: absolute;
-    top: .5em;
+    top: 1.5em;
     left: 1em;
     line-height: 0.5em;
 }
@@ -31,8 +31,12 @@ canvas {
     position: absolute;
 }
 
+#toggle-headers-and-panels {
+    position: absolute;
+}
+
 #panels {
-    top: 5em;
+    top: 6em;
     left: 1em;
     position: absolute;
     width: 10%;

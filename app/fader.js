@@ -1,26 +1,29 @@
 define([ 'jquery' ], function( $ ){
-    var elements = ['hgroup', '#panels'];
+
+    $('#toggle-headers-and-panels').click(function() {
+        $( '#toggle-headers-and-panels').stop( true );
+
+        $('hgroup').toggleClass('hidden');
+        $('#panels').toggleClass('hidden');
+    });
 
     var fadeOutSpeed = 1000;
 
     function fade() {
-        setTimeout( function(){
-            $.each( elements, function( index, element ) {
-                $( element ).fadeOut(fadeOutSpeed);
-            });
-        }, 1000)
-
-    }
+        if ( $('hgroup').hasClass('hidden') && $('#panels').hasClass('hidden')) {
+            setTimeout( function(){
+                $( '#toggle-headers-and-panels' ).fadeOut(fadeOutSpeed);
+            }, 1000)
+        }
+    };
 
     $('body').mousemove( function() {
-        $.each( elements, function( index, element ) {
-            $(element).stop( true );
-            $(element).css('display', '');
-            $(element).css('opacity', '');
-        })
-    });
+        $( '#toggle-headers-and-panels').stop( true );
+        $( '#toggle-headers-and-panels').css('display', '');
+        $( '#toggle-headers-and-panels').css('opacity', '');
 
-    $('canvas').mousemove()
+        fade();
+    });
 
     fade();
 
