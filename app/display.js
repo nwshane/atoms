@@ -1,37 +1,50 @@
 define([ 'jquery', 'atom' ], function( $, atom ) {
-    function selectAtom( num ) {
+
+    function selectAtom( newlySelectedAtom ) {
+        newlySelectedAtom.selected = true;
+        var atoms = atom.getAtoms();
+
+        // Unselect previously selected atoms
+        for ( var i = 0; i < atoms.length; i++ ) {
+            if ( atoms[i].selected ) {
+                if (atoms[i] !== newlySelectedAtom ) {
+                    atoms[i].selected = false;
+                }
+            }
+        }
+
+        $('#atom-display').removeClass( 'hidden' );
+        update();
+    }
+
+    function selectAtomByNum( num ) {
         try {
             var success = true;
-            atom.getAtomNumber( num ).selected = true;
+            var newlySelectedAtom = atom.getAtomNumber( num );
+
         } catch( error ) {
             success = false;
             alert( 'Error: ' + error );
         } if ( success ) {
-            var atoms = atom.getAtoms();
-
-            // Unselect previously selected atoms
-            for ( var i = 0; i < atoms.length; i++ ) {
-                if ( atoms[i].selected ) {
-                    if (atoms[i].num !== num ) {
-                        atoms[i].selected = false;
-                    }
-                }
-            }
-
-            $('#atom-display').removeClass( 'hidden' );
-            update();
+            selectAtom( newlySelectedAtom );
         }
     }
 
     $('#select-atom').click( function() {
-        selectAtom( parseInt( $('#select-atom-number-input').val() ));
+        selectAtomByNum( parseInt( $('#select-atom-number-input').val() ));
     });
 
     $('canvas')[0].addEventListener('click', function(event) {
         var x = event.pageX;
         var y = event.pageY;
 
-        alert('clicked at ' + x + ', ' + y)
+        var atoms = atom.getAtoms();
+
+        for ( var i = 0; i < atoms.length; i++ ) {
+            if ( atoms[i].contains( x, y )) {
+                selectAtom( atoms[i] );
+            }
+        }
     }, false)
 
     function updateDisplayProperty( selectedAtom, property ) {

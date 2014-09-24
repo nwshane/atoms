@@ -36,15 +36,23 @@ define([ 'sim' ], function( sim ) {
                 this.y = random( minY, maxY );
             }
 
-            this.distanceFrom = function( atom2 ) {
-                var xDist = this.x - atom2.x;
-                var yDist = this.y - atom2.y;
+            this.distanceFrom = function( x, y ) {
+                var xDist = this.x - x;
+                var yDist = this.y - y;
 
                 return Math.sqrt( xDist * xDist + yDist * yDist );
             }
 
+            this.contains = function( x, y ) {
+                if ( this.distanceFrom( x, y ) < this.radius ) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
             this.overlapsWith = function( atom2 ) {
-                return (( this.radius + atom2.radius ) > this.distanceFrom( atom2 ));
+                return (( this.radius + atom2.radius ) > this.distanceFrom( atom2.x, atom2.y ));
             }
 
             this.checkNoOverlap = function() {
