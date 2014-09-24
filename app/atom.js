@@ -77,14 +77,39 @@ define([ 'sim' ], function( sim ) {
                 }
             }
 
-            this.draw = function() {
-                var ctx = sim.getCtx();
+            this.fillAtom = function( ctx ) {
                 ctx.beginPath();
                 ctx.fillStyle = this.color;
                 ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
                 ctx.fill();
+            }
+
+            this.writeNumber = function( ctx ) {
                 ctx.fillStyle = 'white';
-                ctx.fillText( this.num, this.x, this.y )
+                ctx.fillText( this.num, this.x - 2, this.y + 2)
+            }
+
+            this.drawCircle = function( ctx, radius ) {
+                ctx.beginPath();
+                ctx.arc( this.x, this.y, radius, 0, 2 * Math.PI, true );
+                ctx.stroke();
+            }
+
+            this.drawTarget = function( ctx ) {
+                ctx.fillStyle = 'red';
+                this.drawCircle( ctx, this.radius * 1.5 );
+                this.drawCircle( ctx, this.radius * 2 );
+                this.drawCircle( ctx, this.radius * 3 );
+            }
+
+            this.draw = function() {
+                var ctx = sim.getCtx();
+                this.fillAtom( ctx );
+                this.writeNumber( ctx );
+
+                if ( this.selected ) {
+                    this.drawTarget( ctx );
+                }
             };
 
             this.move = function() {
