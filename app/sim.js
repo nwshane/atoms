@@ -8,7 +8,7 @@ define([ 'jquery' ], function( $ ){
     }
 
     var ctx = canvas.getContext( '2d' );
-    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.width = window.innerWidth*.8;
     ctx.canvas.height = window.innerHeight;
 
     var intervalLengthMs = 10;

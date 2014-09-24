@@ -21,6 +21,7 @@ h1 {
 canvas {
     border: 1px solid black;
     position: absolute;
+    margin-left: 20%;
 }
 
 .panel {
