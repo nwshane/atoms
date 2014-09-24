@@ -8,6 +8,8 @@ define([ 'sim' ], function( sim ) {
     var minSpeed = 50;
     var maxSpeed = 150;
 
+    var atomIdIterator = 1;
+
     function random( min, max ) {
         return (Math.random() * (1 + max - min)) + min;
     }
@@ -16,16 +18,16 @@ define([ 'sim' ], function( sim ) {
         getAtoms: function() {
             return atoms;
         },
-        getAtomNumber: function( num ) {
+        getAtomById: function( id ) {
             for ( var i = 0; i < atoms.length; i++ ) {
-                if ( atoms[i].num === num ) {
+                if ( atoms[i].id === id ) {
                     return atoms[i];
                 }
             }
 
-            throw 'Atom #' + num + ' does not exist.';
+            throw 'Atom #' + id + ' does not exist.';
         },
-        Atom: function( atomNum ) {
+        Atom: function() {
             this.setRandomPosition = function() {
                 var minX = this.radius;
                 var maxX = sim.getW() - this.radius;
@@ -84,9 +86,9 @@ define([ 'sim' ], function( sim ) {
                 ctx.fill();
             }
 
-            this.writeNumber = function( ctx ) {
+            this.writeId = function( ctx ) {
                 ctx.fillStyle = 'white';
-                ctx.fillText( this.num, this.x - 2, this.y + 2)
+                ctx.fillText( this.id, this.x - 2, this.y + 2)
             }
 
             this.drawCircle = function( ctx, radius ) {
@@ -105,7 +107,7 @@ define([ 'sim' ], function( sim ) {
             this.draw = function() {
                 var ctx = sim.getCtx();
                 this.fillAtom( ctx );
-                this.writeNumber( ctx );
+                this.writeId( ctx );
 
                 if ( this.selected ) {
                     this.drawTarget( ctx );
@@ -118,7 +120,8 @@ define([ 'sim' ], function( sim ) {
                 this.y += intervalLengthMs/1000 * this.speed * Math.sin( this.direction );
             };
 
-            this.num = atomNum;
+            this.id = atomIdIterator;
+            atomIdIterator++;
             this.radius = random( minRadius, maxRadius );
             this.mass = Math.PI * this.radius * this.radius;
             this.color = "rgb(0,0,0)";

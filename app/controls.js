@@ -38,7 +38,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom
         for (var i = 0; i<numberAtoms; i++) {
 
             try {
-                var newAtom = new atom.Atom( atoms.length + 1 );
+                var newAtom = new atom.Atom();
             } catch( error ) {
                 alert( 'Error: ' + error );
                 return;

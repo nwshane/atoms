@@ -17,11 +17,10 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
         update();
     }
 
-    function selectAtomByNum( num ) {
+    function selectAtomById( id ) {
         try {
             var success = true;
-            var newlySelectedAtom = atom.getAtomNumber( num );
-
+            var newlySelectedAtom = atom.getAtomById( id );
         } catch( error ) {
             success = false;
             alert( 'Error: ' + error );
@@ -31,7 +30,7 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
     }
 
     $('#select-atom').click( function() {
-        selectAtomByNum( parseInt( $('#select-atom-number-input').val() ));
+        selectAtomById( parseInt( $('#select-atom-number-input').val() ));
     });
 
     $('canvas')[0].addEventListener('click', function(event) {
@@ -56,7 +55,7 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
     }
 
     function update() {
-        var propertiesToUpdate = [ 'num', 'radius', 'x', 'y', 'direction', 'speed' ]
+        var propertiesToUpdate = [ 'id', 'radius', 'x', 'y', 'direction', 'speed' ]
         var atoms = atom.getAtoms();
 
         // Update display with properties of selected atom
