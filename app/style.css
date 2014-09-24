@@ -21,7 +21,6 @@ h1 {
 canvas {
     border: 1px solid black;
     position: absolute;
-    margin-left: 20%;
 }
 
 .panel {
@@ -31,6 +30,7 @@ canvas {
     top: 50px;
     left: 1em;
     width: 100px;
+    background-color: white;
 }
 
 .hidden {
