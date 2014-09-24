@@ -5,4 +5,4 @@ requirejs.config({
     }
 });
 
-require([ 'jquery', 'atom', 'controls' ]);
+require([ 'jquery', 'atom', 'controls', 'fader' ]);
