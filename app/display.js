@@ -19,7 +19,7 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
             }
 
             $('#atom-display').removeClass( 'hidden' );
-            updateDisplay();
+            update();
         }
     }
 
@@ -42,8 +42,8 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
         $( '#selected-atom-' + property ).text( Math.round( value ));
     }
 
-    function updateDisplay() {
-        var propertiesToUpdate = [ 'num', 'radius', 'mass', 'direction', 'speed' ]
+    function update() {
+        var propertiesToUpdate = [ 'num', 'radius', 'x', 'y', 'direction', 'speed' ]
         var atoms = atom.getAtoms();
 
         // Update display with properties of selected atom
@@ -57,6 +57,8 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
     }
 
     return {
-        update: updateDisplay()
+        update: function() {
+            update();
+        }
     };
 });
