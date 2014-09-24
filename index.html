@@ -17,29 +17,34 @@
 
 <body>
 
-<h1>Atom Simulation</h1>
+<hgroup>
+    <h1>Atom Simulation</h1>
+    <h2>Created by Nathan Shane</h2>
+</hgroup>
 
 <canvas>A simulation of atoms.</canvas>
 
-<div id="controls" class="panel">
-    <button id="show-controls" type="button">Toggle Controls</button>
-    <div id="togglable-controls">
-        <button id="play-pause" type="button">Play Simulation</button>
-        <br>
-        <button id="create-atoms" type="button">Create Atoms:</button>
-        <input id="create-atom-number-input" type="text" size="2">
+<div id="panels">
+    <div id="controls" class="panel">
+        <button id="show-controls" type="button">Toggle Controls</button>
+        <div id="togglable-controls">
+            <button id="play-pause" type="button">Play Simulation</button>
+            <br>
+            <button id="create-atoms" type="button">Create Atoms:</button>
+            <input id="create-atom-number-input" type="text" size="2">
+        </div>
     </div>
-</div>
 
-<div id="display" class="panel">
-    <button id="select-atom" type="button">Select Atom Number:</button>
-    <input id="select-atom-number-input" type="text" size="2">
-    <div id="atom-display" class="hidden">
-        <p>Number: <span id="selected-atom-num"></span></p>
-        <p>Radius: <span id="selected-atom-radius"></span></p>
-        <p>Coordinates: (<span id="selected-atom-x"></span>, <span id="selected-atom-y"></span>)</p>
-        <p>Direction: <span id="selected-atom-direction"></span>&deg;</p>
-        <p>Speed: <span id="selected-atom-speed"></span> px/s</p>
+    <div id="display" class="panel">
+        <button id="select-atom" type="button">Select Atom Number:</button>
+        <input id="select-atom-number-input" type="text" size="2">
+        <div id="atom-display" class="hidden">
+            <p>Number: <span id="selected-atom-num"></span></p>
+            <p>Radius: <span id="selected-atom-radius"></span></p>
+            <p>Coordinates: (<span id="selected-atom-x"></span>, <span id="selected-atom-y"></span>)</p>
+            <p>Direction: <span id="selected-atom-direction"></span>&deg;</p>
+            <p>Speed: <span id="selected-atom-speed"></span> px/s</p>
+        </div>
     </div>
 </div>
 
