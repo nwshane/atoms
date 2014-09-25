@@ -1,8 +1,4 @@
 define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom, collide, display ) {
-    $('#show-controls').click(function(){
-        $( '#togglable-controls' ).toggleClass( 'hidden' );
-    });
-
     var interval;
 
     function createNewInstance() {
