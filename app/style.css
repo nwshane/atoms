@@ -48,6 +48,10 @@ canvas {
     background-color: white;
 }
 
+#atom-display h3 {
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }

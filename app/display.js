@@ -1,17 +1,21 @@
 define([ 'jquery', 'atom' ], function( $, atom ) {
 
-    function selectAtom( newlySelectedAtom ) {
-        newlySelectedAtom.selected = true;
+    function unselectAtomsExceptFor( exception ) {
         var atoms = atom.getAtoms();
 
-        // Unselect previously selected atoms
         for ( var i = 0; i < atoms.length; i++ ) {
             if ( atoms[i].selected ) {
-                if (atoms[i] !== newlySelectedAtom ) {
+                if (atoms[i] !== exception ) {
                     atoms[i].selected = false;
                 }
             }
         }
+    }
+
+    function selectAtom( newlySelectedAtom ) {
+        newlySelectedAtom.selected = true;
+        unselectAtomsExceptFor( newlySelectedAtom );
+        atom.drawAtoms();
 
         $('#atom-display').removeClass( 'hidden' );
         update();

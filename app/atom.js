@@ -146,6 +146,13 @@ define([ 'sim' ], function( sim ) {
         moveAtoms: function() {
             for ( var i = 0; i < atoms.length; i++ ) {
                 atoms[i].move();
+            }
+        },
+        drawAtoms: function() {
+            var ctx = sim.getCtx();
+            ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
+
+            for ( var i = 0; i < atoms.length; i++ ) {
                 atoms[i].draw();
             }
         }

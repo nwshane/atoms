@@ -4,8 +4,8 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom
     function createNewInstance() {
         var ctx = sim.getCtx();
         collide.collide();
-        ctx.clearRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
         atom.moveAtoms();
+        atom.drawAtoms();
         display.update();
     }
 
