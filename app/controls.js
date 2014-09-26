@@ -17,14 +17,23 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom
         clearInterval( interval );
     }
 
-    $('#play-pause').click(function(){
-        if ( $( event.target ).text() === 'Play Simulation' ) {
+    function playPause() {
+        var $button = $('#play-pause');
+        if ( $button.text() === 'Play Simulation' ) {
             beginInterval();
-            $( event.target ).text( 'Pause Simulation' );
+            $button.text( 'Pause Simulation' );
         } else {
             stopInterval();
-            $( event.target).text( 'Play Simulation' );
+            $button.text( 'Play Simulation' );
         }
+    }
+
+    $('#play-pause').click(function(){
+        playPause();
+    });
+
+    $(document).bind('keyup', 'space', function() {
+        playPause();
     });
 
     $('#create-atoms').click(function(){
