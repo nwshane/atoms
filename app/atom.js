@@ -143,6 +143,18 @@ define([ 'sim' ], function( sim ) {
                 }
             }
         },
+        createAtoms: function( numberToCreate ) {
+            for (var i = 0; i<numberToCreate; i++) {
+                try {
+                    var newAtom = new this.Atom();
+                } catch( error ) {
+                    alert( 'Error: ' + error );
+                    return;
+                }
+                atoms.push( newAtom );
+                newAtom.draw();
+            }
+        },
         moveAtoms: function() {
             for ( var i = 0; i < atoms.length; i++ ) {
                 atoms[i].move();

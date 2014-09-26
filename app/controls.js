@@ -36,20 +36,18 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom
         playPause();
     });
 
+    function getNumberFromInput() {
+        $('#input-window').removeClass( 'hidden' );
+        $('#number-input').focus();
+
+        $('#number-input').bind('keyup', 'return', function() {
+            return $( '#number-input' ).val();
+        });
+    }
+
     $('#create-atoms').click(function(){
-        var numberAtoms = $( '#create-atom-number-input' ).val();
-        var atoms = atom.getAtoms();
+        var numberToCreate = getNumberFromInput();
 
-        for (var i = 0; i<numberAtoms; i++) {
-
-            try {
-                var newAtom = new atom.Atom();
-            } catch( error ) {
-                alert( 'Error: ' + error );
-                return;
-            }
-            atoms.push( newAtom );
-            newAtom.draw();
-        }
+        atom.createAtoms( numberToCreate );
     });
 });

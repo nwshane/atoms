@@ -30,7 +30,6 @@
         <button id="play-pause" type="button">Play Simulation</button>
         <br>
         <button id="create-atoms" type="button">Create Atoms:</button>
-        <input id="create-atom-number-input" type="text" size="2">
     </div>
 
     <div id="display" class="panel">
@@ -44,6 +43,10 @@
             <p>Speed: <span id="selected-atom-speed"></span> px/s</p>
         </div>
     </div>
+</div>
+
+<div id="input-window" class="hidden">
+    <input id="number-input" type="text" size="2">
 </div>
 
 <script data-main="app/main" src="bower_components/requirejs/require.js"></script>
