@@ -1,4 +1,4 @@
-define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom, collide, display ) {
+define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function ($, sim, atom, collide, display) {
     var interval;
 
     function createNewInstance() {
@@ -10,44 +10,59 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function( $, sim, atom
     }
 
     function beginInterval() {
-        interval = setInterval( createNewInstance, sim.getIntervalLengthMs() );
+        interval = setInterval(createNewInstance, sim.getIntervalLengthMs());
     }
 
     function stopInterval() {
-        clearInterval( interval );
+        clearInterval(interval);
     }
 
     function playPause() {
         var $button = $('#play-pause');
-        if ( $button.text() === 'Play Simulation' ) {
+        if ($button.text() === 'Play Simulation') {
             beginInterval();
-            $button.text( 'Pause Simulation' );
+            $button.text('Pause Simulation');
         } else {
             stopInterval();
-            $button.text( 'Play Simulation' );
+            $button.text('Play Simulation');
         }
     }
 
-    $('#play-pause').click(function(){
+    $('#play-pause').click(function () {
         playPause();
     });
 
-    $(document).bind('keyup', 'space', function() {
+    $(document).bind('keyup', 'space', function () {
         playPause();
     });
 
-    function getNumberFromInput() {
-        $('#input-window').removeClass( 'hidden' );
+
+    function hideNumberInput() {
+        $('#number-input').val('');
+        $('#input-window').addClass('hidden');
+    }
+
+    $('#number-input').focusout(function () {
+        hideNumberInput();
+    });
+
+    function runNumberInputFunction(inputFunction) {
+        $('#input-window').removeClass('hidden');
         $('#number-input').focus();
 
-        $('#number-input').bind('keyup', 'return', function() {
-            return $( '#number-input' ).val();
+        $('#number-input').bind('keyup', 'return', function () {
+            var numberInput = parseInt( $('#number-input').val() );
+
+            hideNumberInput();
+            inputFunction(numberInput);
         });
     }
 
-    $('#create-atoms').click(function(){
-        var numberToCreate = getNumberFromInput();
+    $('#create-atoms').click(function () {
+        runNumberInputFunction(atom.createAtoms);
+    });
 
-        atom.createAtoms( numberToCreate );
+    $(document).bind('keyup', 'c', function () {
+        runNumberInputFunction(atom.createAtoms)
     });
 });
