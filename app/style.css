@@ -62,3 +62,15 @@ canvas {
     display: none;
 }
 
+span.shortcut {
+    font-style: italic;
+}
+
+span.shortcut::before {
+    content: '{';
+}
+
+span.shortcut::after {
+    content: '}';
+}
+

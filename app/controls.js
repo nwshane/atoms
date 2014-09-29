@@ -19,12 +19,12 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
 
     function playPause() {
         var $button = $('#play-pause');
-        if ($button.text() === 'Play Simulation') {
+        if ($button.html() === 'Play Simulation <span class="shortcut">spacebar</span>') {
             beginInterval();
-            $button.text('Pause Simulation');
+            $button.html('Pause Simulation <span class="shortcut">spacebar</span>');
         } else {
             stopInterval();
-            $button.text('Play Simulation');
+            $button.html('Play Simulation <span class="shortcut">spacebar</span>');
         }
     }
 
