@@ -28,6 +28,18 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
         }
     }
 
+    $(document).bind('keydown', 'n', function () {
+        createNewInstance();
+    });
+
+    $('#next-instance').click(function() {
+        createNewInstance();
+    });
+
+    $(document).bind('keydown', 'n', function () {
+        createNewInstance();
+    });
+
     $('#play-pause').click(function () {
         playPause();
     });
