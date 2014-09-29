@@ -6,4 +6,4 @@ requirejs.config({
     }
 });
 
-require([ 'jquery', 'hotkeys', 'atom', 'controls', 'fader' ]);
+require([ 'jquery', 'hotkeys', 'atom', 'controls', 'fader', 'input' ]);

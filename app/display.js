@@ -21,22 +21,6 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
         update();
     }
 
-    function selectAtomById( id ) {
-        try {
-            var success = true;
-            var newlySelectedAtom = atom.getAtomById( id );
-        } catch( error ) {
-            success = false;
-            alert( 'Error: ' + error );
-        } if ( success ) {
-            selectAtom( newlySelectedAtom );
-        }
-    }
-
-    $('#select-atom').click( function() {
-        selectAtomById( parseInt( $('#select-atom-number-input').val() ));
-    });
-
     $('canvas')[0].addEventListener('click', function(event) {
         var x = event.pageX;
         var y = event.pageY;
@@ -73,6 +57,18 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
     }
 
     return {
+        selectAtomById: function( id ) {
+            try {
+                var success = true;
+                var newlySelectedAtom = atom.getAtomById( id );
+            } catch( error ) {
+                success = false;
+                console.log( 'Error: ' + error );
+            } if ( success ) {
+                selectAtom( newlySelectedAtom );
+            }
+        },
+
         update: function() {
             update();
         }

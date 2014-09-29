@@ -1,4 +1,4 @@
-define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function ($, sim, atom, collide, display) {
+define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom, collide, display) {
     var interval;
 
     function createNewInstance() {
@@ -34,38 +34,5 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function ($, sim, atom
 
     $(document).bind('keyup', 'space', function () {
         playPause();
-    });
-
-    function hideNumberInput() {
-        $('#number-input').val('');
-        $('#number-input').addClass('hidden');
-    }
-
-    $('#number-input').bind('keyup', 'esc', function () {
-        hideNumberInput();
-    });
-
-    $('#number-input').focusout(function () {
-        hideNumberInput();
-    });
-
-    function runNumberInputFunction(inputFunction) {
-        $('#number-input').removeClass('hidden');
-        $('#number-input').focus();
-
-        $('#number-input').bind('keyup', 'return', function () {
-            var numberInput = parseInt( $('#number-input').val() );
-
-            hideNumberInput();
-            inputFunction(numberInput);
-        });
-    }
-
-    $('#create-atoms').click(function () {
-        runNumberInputFunction(atom.createAtoms);
-    });
-
-    $(document).bind('keyup', 'c', function () {
-        runNumberInputFunction(atom.createAtoms)
     });
 });
