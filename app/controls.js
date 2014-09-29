@@ -38,7 +38,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function ($, sim, atom
 
     function hideNumberInput() {
         $('#number-input').val('');
-        $('#input-window').addClass('hidden');
+        $('#number-input').addClass('hidden');
     }
 
     $('#number-input').bind('keyup', 'esc', function () {
@@ -50,7 +50,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function ($, sim, atom
     });
 
     function runNumberInputFunction(inputFunction) {
-        $('#input-window').removeClass('hidden');
+        $('#number-input').removeClass('hidden');
         $('#number-input').focus();
 
         $('#number-input').bind('keyup', 'return', function () {
