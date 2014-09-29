@@ -36,11 +36,14 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display' ], function ($, sim, atom
         playPause();
     });
 
-
     function hideNumberInput() {
         $('#number-input').val('');
         $('#input-window').addClass('hidden');
     }
+
+    $('#number-input').bind('keyup', 'esc', function () {
+        hideNumberInput();
+    });
 
     $('#number-input').focusout(function () {
         hideNumberInput();
