@@ -23,28 +23,14 @@ define([ 'jquery', 'atom', 'display' ], function( $, atom, display ) {
 
     $('#number-input').bind('keyup', 'return', runKeyup);
 
-    function runNumberInputFunction() {
-        $('#number-input').removeClass('hidden');
-        $('#number-input').focus();
+    return {
+        setInputKeyupFunction: function( newFunction ) {
+            inputKeyupFunction = newFunction;
+        },
+        runNumberInputFunction: function() {
+            $('#number-input').removeClass('hidden');
+            $('#number-input').focus();
+        }
     }
 
-    $('#create-atoms').click(function () {
-        inputKeyupFunction = atom.createAtoms;
-        runNumberInputFunction();
-    });
-
-    $(document).bind('keyup', 'c', function () {
-        inputKeyupFunction = atom.createAtoms;
-        runNumberInputFunction();
-    });
-
-    $('#select-atom').click(function () {
-        inputKeyupFunction = display.selectAtomById;
-        runNumberInputFunction();
-    });
-
-    $(document).bind('keyup', 's', function () {
-        inputKeyupFunction = display.selectAtomById;
-        runNumberInputFunction();
-    });
 });

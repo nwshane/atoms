@@ -1,26 +1,6 @@
-define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom, collide, display) {
+define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, sim, atom, collide, display, input) {
     var interval;
     var playing = false;
-
-    function createNewInstance() {
-        var ctx = sim.getCtx();
-        collide.collide();
-        atom.moveAtoms();
-        atom.drawAtoms();
-        display.update();
-    }
-
-    $(document).bind('keydown', 'n', function () {
-        createNewInstance();
-    });
-
-    $('#next-instance').click(function() {
-        createNewInstance();
-    });
-
-    $(document).bind('keydown', 'n', function () {
-        createNewInstance();
-    });
 
     function beginInterval() {
         interval = setInterval(createNewInstance, sim.getIntervalLengthMs());
@@ -29,23 +9,6 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
     function stopInterval() {
         clearInterval(interval);
     }
-
-    function resetSimulation() {
-        if (playing) {
-            playPause();
-        }
-        atom.removeAllAtoms();
-        atom.drawAtoms();
-        atom.resetIdIterator();
-    }
-
-    $('#reset-simulation').click(function () {
-        resetSimulation();
-    });
-
-    $(document).bind('keyup', 'r', function () {
-        resetSimulation();
-    });
 
     function playPause() {
         playing = !playing;
@@ -68,7 +31,66 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
         playPause();
     });
 
-    function unselect() {
+    function createNewInstance() {
+        var ctx = sim.getCtx();
+        collide.collide();
+        atom.moveAtoms();
+        atom.drawAtoms();
+        display.update();
+    }
+
+    $('#next-instance').click(function() {
+        createNewInstance();
+    });
+
+    $(document).bind('keydown', 'n', function () {
+        createNewInstance();
+    });
+
+    function createAtoms() {
+        input.setInputKeyupFunction(atom.createAtoms);
+        input.runNumberInputFunction();
+    }
+
+    $('#create-atoms').click(function () {
+        createAtoms();
+    });
+
+    $(document).bind('keyup', 'c', function () {
+        createAtoms();
+    });
+
+    function resetSimulation() {
+        if (playing) {
+            playPause();
+        }
+        atom.removeAllAtoms();
+        atom.drawAtoms();
+        atom.resetIdIterator();
+    }
+
+    $('#reset-simulation').click(function () {
+        resetSimulation();
+    });
+
+    $(document).bind('keyup', 'r', function () {
+        resetSimulation();
+    });
+
+    function selectAtom() {
+        input.setInputKeyupFunction(display.selectAtomById);
+        input.runNumberInputFunction();
+    }
+
+    $('#select-atom').click(function () {
+        selectAtom();
+    });
+
+    $(document).bind('keyup', 's', function () {
+        selectAtom();
+    });
+
+    function unselectAtoms() {
         atom.unselectAtoms();
         atom.drawAtoms();
         display.update();
@@ -76,10 +98,10 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
     }
 
     $('#unselect-atoms').click(function () {
-        unselect();
+        unselectAtoms();
     });
 
     $(document).bind('keyup', 'u', function () {
-        unselect();
+        unselectAtoms();
     });
 });
