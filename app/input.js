@@ -1,4 +1,15 @@
-define([ 'jquery', 'atom', 'display' ], function( $, atom, display ) {
+define([ 'jquery' ], function( $ ) {
+    var inputKeyupFunction;
+
+    function runKeyup() {
+        var numberInput = parseInt( $('#number-input').val() );
+
+        cancelNumberInput();
+        inputKeyupFunction(numberInput);
+    }
+
+    $('#number-input').bind('keyup', 'return', runKeyup);
+
     function cancelNumberInput() {
         $('#number-input').val('');
         $('#number-input').addClass('hidden');
@@ -12,17 +23,6 @@ define([ 'jquery', 'atom', 'display' ], function( $, atom, display ) {
         cancelNumberInput();
     });
 
-    var inputKeyupFunction;
-
-    function runKeyup() {
-        var numberInput = parseInt( $('#number-input').val() );
-
-        cancelNumberInput();
-        inputKeyupFunction(numberInput);
-    }
-
-    $('#number-input').bind('keyup', 'return', runKeyup);
-
     return {
         setInputKeyupFunction: function( newFunction ) {
             inputKeyupFunction = newFunction;
@@ -32,5 +32,4 @@ define([ 'jquery', 'atom', 'display' ], function( $, atom, display ) {
             $('#number-input').focus();
         }
     }
-
 });
