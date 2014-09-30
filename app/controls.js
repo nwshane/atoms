@@ -1,5 +1,6 @@
 define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom, collide, display) {
     var interval;
+    var playing = false;
 
     function createNewInstance() {
         var ctx = sim.getCtx();
@@ -7,25 +8,6 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
         atom.moveAtoms();
         atom.drawAtoms();
         display.update();
-    }
-
-    function beginInterval() {
-        interval = setInterval(createNewInstance, sim.getIntervalLengthMs());
-    }
-
-    function stopInterval() {
-        clearInterval(interval);
-    }
-
-    function playPause() {
-        var $button = $('#play-pause');
-        if ($button.html() === 'Play Simulation <span class="shortcut">spacebar</span>') {
-            beginInterval();
-            $button.html('Pause Simulation <span class="shortcut">spacebar</span>');
-        } else {
-            stopInterval();
-            $button.html('Play Simulation <span class="shortcut">spacebar</span>');
-        }
     }
 
     $(document).bind('keydown', 'n', function () {
@@ -39,6 +21,44 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
     $(document).bind('keydown', 'n', function () {
         createNewInstance();
     });
+
+    function beginInterval() {
+        interval = setInterval(createNewInstance, sim.getIntervalLengthMs());
+    }
+
+    function stopInterval() {
+        clearInterval(interval);
+    }
+
+    function resetSimulation() {
+        if (playing) {
+            playPause();
+        }
+        atom.removeAtoms( atom.getAtoms().length );
+        atom.drawAtoms();
+        atom.resetIdIterator();
+    }
+
+    $('#reset-simulation').click(function () {
+        resetSimulation();
+    });
+
+    $(document).bind('keyup', 'r', function () {
+        resetSimulation();
+    });
+
+    function playPause() {
+        playing = !playing;
+
+        var $button = $('#play-pause');
+        if (playing) {
+            beginInterval();
+            $button.html('Pause Simulation <span class="shortcut">spacebar</span>');
+        } else {
+            stopInterval();
+            $button.html('Play Simulation <span class="shortcut">spacebar</span>');
+        }
+    }
 
     $('#play-pause').click(function () {
         playPause();

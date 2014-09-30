@@ -8,7 +8,7 @@ define([ 'sim' ], function( sim ) {
     var minSpeed = 50;
     var maxSpeed = 150;
 
-    var atomIdIterator = 1;
+    var idIterator = 1;
 
     function random( min, max ) {
         return (Math.random() * (1 + max - min)) + min;
@@ -107,8 +107,8 @@ define([ 'sim' ], function( sim ) {
             this.y += intervalLengthMs/1000 * this.speed * Math.sin( this.direction );
         };
 
-        this.id = atomIdIterator;
-        atomIdIterator++;
+        this.id = idIterator;
+        idIterator++;
         this.radius = random( minRadius, maxRadius );
         this.mass = Math.PI * this.radius * this.radius;
         this.color = "rgb(0,0,0)";
@@ -134,6 +134,9 @@ define([ 'sim' ], function( sim ) {
     }
 
     return {
+        resetIdIterator: function() {
+            idIterator = 1;
+        },
         getAtoms: function() {
             return atoms;
         },
@@ -156,6 +159,16 @@ define([ 'sim' ], function( sim ) {
                 }
                 atoms.push( newAtom );
                 newAtom.draw();
+            }
+        },
+        removeAtoms: function( numberToRemove ) {
+            for (var i = 0; i<numberToRemove; i++) {
+                try {
+                    atoms.splice(atoms.length - 1, 1)
+                } catch( error ) {
+                    console.log( 'Error:' + error );
+                    return;
+                }
             }
         },
         moveAtoms: function() {
