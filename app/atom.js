@@ -15,6 +15,10 @@ define([ 'sim', 'error' ], function( sim, error ) {
     }
 
     function Atom() {
+        this.unselect = function() {
+            this.selected = false;
+        }
+
         this.setRandomPosition = function() {
             var minX = this.radius;
             var maxX = sim.getW() - this.radius;
@@ -163,6 +167,11 @@ define([ 'sim', 'error' ], function( sim, error ) {
         },
         removeAllAtoms: function() {
             atoms = [];
+        },
+        unselectAtoms: function() {
+            for (var i = 0; i<atoms.length; i++ ) {
+                atoms[i].unselect();
+            }
         },
         moveAtoms: function() {
             for ( var i = 0; i < atoms.length; i++ ) {

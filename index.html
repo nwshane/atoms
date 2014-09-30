@@ -34,11 +34,14 @@
         <button id="create-atoms" type="button">Create Atoms <span class="shortcut">c</span></button>
         <br>
         <button id="reset-simulation" type="button">Reset Simulation <span class="shortcut">r</span></button>
+        <br>
+        <button id="select-atom" type="button">Select Atom <span class="shortcut">s</span></button>
+        <br>
+        <button id="unselect-atoms" type="button">Unselect Atoms <span class="shortcut">u</span></button>
     </div>
 
-    <div id="display" class="panel">
-        <button id="select-atom" type="button">Select Atom <span class="shortcut">s</span></button>
-        <div id="atom-display" class="hidden">
+    <div id="display" class="panel hidden">
+        <div id="atom-display">
             <h3>ATOM #<span id="selected-atom-id"></span></h3>
             <p>Radius: <span id="selected-atom-radius"></span></p>
             <p>Coordinates: (<span id="selected-atom-x"></span>, <span id="selected-atom-y"></span>)</p>

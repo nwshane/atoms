@@ -67,4 +67,19 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
     $(document).bind('keyup', 'space', function () {
         playPause();
     });
+
+    function unselect() {
+        atom.unselectAtoms();
+        atom.drawAtoms();
+        display.update();
+        $('#display').addClass( 'hidden' );
+    }
+
+    $('#unselect-atoms').click(function () {
+        unselect();
+    });
+
+    $(document).bind('keyup', 'u', function () {
+        unselect();
+    });
 });
