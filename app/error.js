@@ -1,12 +1,14 @@
 define([ 'jquery' ], function( $ ) {
     var errorIdIterator = 1;
+    var lengthBeforeFade = 2000;
+    var lengthOfFade = 2000;
 
     function fade(errorId) {
         setTimeout( function() {
-            $('#' + errorId).fadeOut(2000, function() {
+            $('#' + errorId).fadeOut(lengthOfFade, function() {
                 this.remove();
             });
-        }, 2000);
+        }, lengthBeforeFade);
     }
 
     return {

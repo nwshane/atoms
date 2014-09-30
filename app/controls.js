@@ -34,7 +34,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display'], function ($, sim, atom,
         if (playing) {
             playPause();
         }
-        atom.removeAtoms( atom.getAtoms().length );
+        atom.removeAllAtoms();
         atom.drawAtoms();
         atom.resetIdIterator();
     }

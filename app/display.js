@@ -1,4 +1,4 @@
-define([ 'jquery', 'atom' ], function( $, atom ) {
+define([ 'jquery', 'atom', 'error' ], function( $, atom, error ) {
 
     function unselectAtomsExceptFor( exception ) {
         var atoms = atom.getAtoms();
@@ -61,9 +61,9 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
             try {
                 var success = true;
                 var newlySelectedAtom = atom.getAtomById( id );
-            } catch( error ) {
+            } catch( errorMessage ) {
                 success = false;
-                console.log( 'Error: ' + error );
+                error.create( errorMessage );
             } if ( success ) {
                 selectAtom( newlySelectedAtom );
             }

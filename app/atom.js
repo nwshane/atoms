@@ -161,15 +161,8 @@ define([ 'sim', 'error' ], function( sim, error ) {
                 newAtom.draw();
             }
         },
-        removeAtoms: function( numberToRemove ) {
-            for (var i = 0; i<numberToRemove; i++) {
-                try {
-                    atoms.splice(atoms.length - 1, 1)
-                } catch( error ) {
-                    console.log( 'Error:' + error );
-                    return;
-                }
-            }
+        removeAllAtoms: function() {
+            atoms = [];
         },
         moveAtoms: function() {
             for ( var i = 0; i < atoms.length; i++ ) {
