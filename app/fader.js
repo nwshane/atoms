@@ -1,6 +1,7 @@
 define([ 'jquery' ], function( $ ){
     var fadeTimeout;
     var fadeOutSpeed = 1000;
+    var hidden = false;
 
     function reset() {
         $( '#toggle-headers-and-panels').stop( true );
@@ -11,11 +12,25 @@ define([ 'jquery' ], function( $ ){
         $('html').css({ cursor: '' });
     }
 
-    $('#toggle-headers-and-panels').click(function() {
+    function togglePanel() {
         reset();
 
         $('hgroup').toggleClass('hidden');
         $('#panels').toggleClass('hidden');
+
+        hidden = !hidden;
+
+        if (hidden) {
+            fade();
+        }
+    }
+
+    $('#toggle-headers-and-panels').click(function() {
+        togglePanel();
+    });
+
+    $(document).bind('keydown', 't', function () {
+        togglePanel();
     });
 
     function fade() {
