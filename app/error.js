@@ -17,8 +17,9 @@ define([ 'jquery' ], function( $ ) {
             errorIdIterator += 1;
 
             $('#errors').append('<p id="' + errorId + '">' + errorMessage + '</p>');
-
             fade(errorId);
+
+            console.log( errorMessage );
         }
     }
 });

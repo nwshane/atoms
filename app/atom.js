@@ -168,6 +168,23 @@ define([ 'sim', 'error' ], function( sim, error ) {
         removeAllAtoms: function() {
             atoms = [];
         },
+        selectAtomById: function( id ) {
+            try {
+                var newlySelectedAtom = this.getAtomById( id );
+            } catch( errorMessage ) {
+                error.create( errorMessage );
+                return;
+            }
+
+            this.selectAtom( newlySelectedAtom );
+        },
+        selectAtom: function( newlySelectedAtom ) {
+            this.unselectAtoms();
+            newlySelectedAtom.selected = true;
+            this.drawAtoms();
+
+            $('#display').removeClass( 'hidden' );
+        },
         unselectAtoms: function() {
             for (var i = 0; i<atoms.length; i++ ) {
                 atoms[i].unselect();

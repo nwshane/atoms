@@ -49,7 +49,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
 
     function createAtoms() {
         input.setInputKeyupFunction(atom.createAtoms);
-        input.runNumberInputFunction();
+        input.focusOnNumberInput();
     }
 
     $('#create-atoms').click(function () {
@@ -79,7 +79,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
 
     function selectAtom() {
         input.setInputKeyupFunction(display.selectAtomById);
-        input.runNumberInputFunction();
+        input.focusOnNumberInput();
     }
 
     $('#select-atom').click(function () {
@@ -89,6 +89,25 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
     $(document).bind('keyup', 's', function () {
         selectAtom();
     });
+
+    function clickSelectAtom(event) {
+        var x = event.pageX;
+        var y = event.pageY;
+
+        var atoms = atom.getAtoms();
+
+        for ( var i = 0; i < atoms.length; i++ ) {
+            if ( atoms[i].contains( x, y )) {
+                atom.selectAtom( atoms[i] );
+            }
+        }
+
+        display.update();
+    }
+
+    $('canvas')[0].addEventListener('click', function(event) {
+        clickSelectAtom(event)
+    }, false);
 
     function unselectAtoms() {
         atom.unselectAtoms();

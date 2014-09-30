@@ -1,25 +1,4 @@
-define([ 'jquery', 'atom', 'error' ], function( $, atom, error ) {
-    function selectAtom( newlySelectedAtom ) {
-        atom.unselectAtoms();
-        newlySelectedAtom.selected = true;
-        atom.drawAtoms();
-
-        $('#display').removeClass( 'hidden' );
-        update();
-    }
-
-    $('canvas')[0].addEventListener('click', function(event) {
-        var x = event.pageX;
-        var y = event.pageY;
-
-        var atoms = atom.getAtoms();
-
-        for ( var i = 0; i < atoms.length; i++ ) {
-            if ( atoms[i].contains( x, y )) {
-                selectAtom( atoms[i] );
-            }
-        }
-    }, false)
+define([ 'jquery', 'atom' ], function( $, atom ) {
 
     function updateDisplayProperty( selectedAtom, property ) {
         var value = selectedAtom[property];
@@ -44,18 +23,10 @@ define([ 'jquery', 'atom', 'error' ], function( $, atom, error ) {
     }
 
     return {
-        selectAtomById: function( id ) {
-            try {
-                var success = true;
-                var newlySelectedAtom = atom.getAtomById( id );
-            } catch( errorMessage ) {
-                success = false;
-                error.create( errorMessage );
-            } if ( success ) {
-                selectAtom( newlySelectedAtom );
-            }
+        selectAtomById: function(id) {
+            atom.selectAtomById(id);
+            update();
         },
-
         update: function() {
             update();
         }

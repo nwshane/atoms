@@ -4,30 +4,30 @@ define([ 'jquery' ], function( $ ) {
     function runKeyup() {
         var numberInput = parseInt( $('#number-input').val() );
 
-        cancelNumberInput();
+        closeNumberInput();
         inputKeyupFunction(numberInput);
     }
 
     $('#number-input').bind('keyup', 'return', runKeyup);
 
-    function cancelNumberInput() {
+    function closeNumberInput() {
         $('#number-input').val('');
         $('#number-input').addClass('hidden');
     }
 
     $('#number-input').bind('keyup', 'esc', function () {
-        cancelNumberInput();
+        closeNumberInput();
     });
 
     $('#number-input').focusout(function () {
-        cancelNumberInput();
+        closeNumberInput();
     });
 
     return {
         setInputKeyupFunction: function( newFunction ) {
             inputKeyupFunction = newFunction;
         },
-        runNumberInputFunction: function() {
+        focusOnNumberInput: function() {
             $('#number-input').removeClass('hidden');
             $('#number-input').focus();
         }
