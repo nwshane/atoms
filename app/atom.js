@@ -1,4 +1,4 @@
-define([ 'sim' ], function( sim ) {
+define([ 'sim', 'error' ], function( sim, error ) {
     var atoms = [];
 
     var minRadius = 20;
@@ -153,8 +153,8 @@ define([ 'sim' ], function( sim ) {
             for (var i = 0; i<numberToCreate; i++) {
                 try {
                     var newAtom = new Atom();
-                } catch( error ) {
-                    console.log( 'Error: ' + error );
+                } catch( errorMessage ) {
+                    error.create( errorMessage );
                     return;
                 }
                 atoms.push( newAtom );

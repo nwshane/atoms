@@ -48,6 +48,14 @@ canvas {
     left: 1em;
 }
 
+#errors {
+    position: absolute;
+    bottom: 2em;
+    right: 5em;
+    color: red;
+    font-size: 1.4em;
+}
+
 .panel {
     border: 1px solid black;
     padding: 10px;
