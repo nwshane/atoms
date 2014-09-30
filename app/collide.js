@@ -136,11 +136,11 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
         var finalSpeed2 = Math.sqrt( modFinalXVelocity2 * modFinalXVelocity2 + modInitialYVelocity2 * modInitialYVelocity2 );
 
         // Changing Atom 1 Direction and Speed
-        atom1.direction = finalDirection1;
+        atom1.changeDirection(finalDirection1);
         atom1.speed = finalSpeed1;
 
         // Changing Atom 2 Direction and Speed
-        atom2.direction = finalDirection2;
+        atom2.changeDirection(finalDirection2);
         atom2.speed = finalSpeed2;
     }
 
