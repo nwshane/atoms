@@ -1,10 +1,11 @@
-define([ 'jquery' ], function( $ ) {
+define([ 'jquery', 'error' ], function( $, error ) {
     var inputKeyupFunction;
 
     function runKeyup() {
         var numberInput = parseInt( $('#number-input').val() );
         closeNumberInput();
         if (isNaN(numberInput)) {
+            error.create('Please enter a valid number value.');
             return;
         } else {
             inputKeyupFunction(numberInput);
