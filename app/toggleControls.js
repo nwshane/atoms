@@ -4,19 +4,18 @@ define([ 'jquery' ], function( $ ){
     var hidden = false;
 
     function reset() {
-        $( '#toggle-headers-and-panels').stop( true );
+        $( '#toggle-controls').stop( true );
         clearTimeout( fadeTimeout );
 
-        $( '#toggle-headers-and-panels').css('display', '');
-        $( '#toggle-headers-and-panels').css('opacity', '');
+        $( '#toggle-controls').css('display', '');
+        $( '#toggle-controls').css('opacity', '');
         $('html').css({ cursor: '' });
     }
 
     function togglePanel() {
         reset();
 
-        $('hgroup').toggleClass('hidden');
-        $('#panels').toggleClass('hidden');
+        $('#controls').toggleClass('hidden');
 
         hidden = !hidden;
 
@@ -25,7 +24,7 @@ define([ 'jquery' ], function( $ ){
         }
     }
 
-    $('#toggle-headers-and-panels').click(function() {
+    $('#toggle-controls').click(function() {
         togglePanel();
     });
 
@@ -34,9 +33,9 @@ define([ 'jquery' ], function( $ ){
     });
 
     function fade() {
-        if ( $('hgroup').hasClass('hidden') && $('#panels').hasClass('hidden')) {
+        if ( $('#controls').hasClass('hidden')) {
             fadeTimeout = setTimeout( function(){
-                $( '#toggle-headers-and-panels' ).fadeOut(fadeOutSpeed, function() {
+                $( '#toggle-controls' ).fadeOut(fadeOutSpeed, function() {
                     $('html').css({ cursor: 'none' });
                 });
             }, 1000);
