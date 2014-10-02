@@ -57,9 +57,12 @@ canvas {
 }
 
 .panel {
+    background-color: white;
+}
+
+#controls, .atom-display {
     border: 1px solid black;
     padding: 10px;
-    background-color: white;
 }
 
 #atom-display h3 {
