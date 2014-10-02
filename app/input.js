@@ -3,9 +3,12 @@ define([ 'jquery' ], function( $ ) {
 
     function runKeyup() {
         var numberInput = parseInt( $('#number-input').val() );
-
         closeNumberInput();
-        inputKeyupFunction(numberInput);
+        if (isNaN(numberInput)) {
+            return;
+        } else {
+            inputKeyupFunction(numberInput);
+        }
     }
 
     $('#number-input').bind('keyup', 'return', runKeyup);
