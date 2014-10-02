@@ -113,7 +113,6 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
         atom.unselectAtoms();
         atom.drawAtoms();
         display.update();
-        $('#display').addClass( 'hidden' );
     }
 
     $('#unselect-atoms').click(function () {
