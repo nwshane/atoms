@@ -3,7 +3,7 @@ define([ 'jquery' ], function( $ ){
     var fadeOutSpeed = 1000;
     var hidden = false;
 
-    function reset() {
+    function makeToggleButtonVisible() {
         $( '#toggle-controls').stop( true );
         clearTimeout( fadeTimeout );
 
@@ -13,14 +13,13 @@ define([ 'jquery' ], function( $ ){
     }
 
     function togglePanel() {
-        reset();
-
-        $('#controls').toggleClass('hidden');
+        makeToggleButtonVisible();
+        $('#togglable-controls').toggleClass('hidden');
 
         hidden = !hidden;
 
         if (hidden) {
-            fade();
+            beginToggleButtonFade();
         }
     }
 
@@ -32,8 +31,8 @@ define([ 'jquery' ], function( $ ){
         togglePanel();
     });
 
-    function fade() {
-        if ( $('#controls').hasClass('hidden')) {
+    function beginToggleButtonFade() {
+        if ( $('#togglable-controls').hasClass('hidden')) {
             fadeTimeout = setTimeout( function(){
                 $( '#toggle-controls' ).fadeOut(fadeOutSpeed, function() {
                     $('html').css({ cursor: 'none' });
@@ -43,11 +42,11 @@ define([ 'jquery' ], function( $ ){
     }
 
     $('body').mousemove( function() {
-        reset();
+        makeToggleButtonVisible();
 
-        fade();
+        beginToggleButtonFade();
     });
 
-    fade();
+    beginToggleButtonFade();
 
 });

@@ -24,9 +24,9 @@
 
 <canvas>A simulation of atoms.</canvas>
 
-<button id="toggle-controls" type="button">Toggle Controls <span class="shortcut">t</span></button>
-<div id="panels">
-    <div id="controls" class="panel">
+<div id="controls">
+    <button id="toggle-controls" type="button">Toggle Controls <span class="shortcut">t</span></button>
+    <div id="togglable-controls" class="panel">
         <button id="play-pause" type="button">Play Simulation <span class="shortcut">spacebar</span></button>
         <br>
         <button id="next-instance" type="button">Next Instance <span class="shortcut">n</span></button>
@@ -39,8 +39,9 @@
         <br>
         <button id="unselect-atoms" type="button">Unselect Atoms <span class="shortcut">u</span></button>
     </div>
-    <div id="display" class="panel"></div>
 </div>
+
+<div id="display" class="panel"></div>
 
 <div id="input-window">
     <input id="number-input" class="hidden" type="text" size="2">
