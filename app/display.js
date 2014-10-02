@@ -1,4 +1,4 @@
-define([ 'jquery', 'atom' ], function( $, atom ) {
+define([ 'jquery', 'atom', 'error' ], function( $, atom, error ) {
 
     function updateDisplayProperty( selectedAtom, property ) {
         var value = selectedAtom[property];
@@ -27,8 +27,15 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
         update: function() {
             update();
         },
-        selectUnselectAtomById: function(id) {
-            atom.selectUnselectAtomById(id);
+        toggleAtomById: function(id) {
+            try {
+                var chosenAtom = atom.getAtomById( id );
+            } catch( errorMessage ) {
+                error.create( errorMessage );
+                return;
+            }
+            atom.toggleSelectAtom(chosenAtom);
+
             update();
         }
     };

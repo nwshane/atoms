@@ -179,16 +179,6 @@ define([ 'sim', 'error' ], function( sim, error ) {
         removeAllAtoms: function() {
             atoms = [];
         },
-        selectUnselectAtomById: function( id ) {
-            try {
-                var newlySelectedAtom = this.getAtomById( id );
-            } catch( errorMessage ) {
-                error.create( errorMessage );
-                return;
-            }
-
-            this.toggleSelectAtom( newlySelectedAtom );
-        },
         toggleSelectAtom: function( newlySelectedAtom ) {
             newlySelectedAtom.toggleSelected();
             this.drawAtoms();

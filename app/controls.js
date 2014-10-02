@@ -78,7 +78,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
     });
 
     function selectUnselectAtom() {
-        input.setInputKeyupFunction(display.selectUnselectAtomById);
+        input.setInputKeyupFunction(display.toggleAtomById);
         input.focusOnNumberInput();
     }
 
