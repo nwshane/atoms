@@ -77,17 +77,17 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
         resetSimulation();
     });
 
-    function selectAtom() {
-        input.setInputKeyupFunction(display.selectAtomById);
+    function selectUnselectAtom() {
+        input.setInputKeyupFunction(display.selectUnselectAtomById);
         input.focusOnNumberInput();
     }
 
-    $('#select-atom').click(function () {
-        selectAtom();
+    $('#select-unselect-atom').click(function () {
+        selectUnselectAtom();
     });
 
     $(document).bind('keyup', 's', function () {
-        selectAtom();
+        selectUnselectAtom();
     });
 
     function clickSelectAtom(event) {

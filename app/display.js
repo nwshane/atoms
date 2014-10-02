@@ -27,8 +27,8 @@ define([ 'jquery', 'atom' ], function( $, atom ) {
         update: function() {
             update();
         },
-        selectAtomById: function(id) {
-            atom.selectAtomById(id);
+        selectUnselectAtomById: function(id) {
+            atom.selectUnselectAtomById(id);
             update();
         }
     };

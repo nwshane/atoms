@@ -179,7 +179,7 @@ define([ 'sim', 'error' ], function( sim, error ) {
         removeAllAtoms: function() {
             atoms = [];
         },
-        selectAtomById: function( id ) {
+        selectUnselectAtomById: function( id ) {
             try {
                 var newlySelectedAtom = this.getAtomById( id );
             } catch( errorMessage ) {
