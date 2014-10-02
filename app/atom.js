@@ -17,8 +17,19 @@ define([ 'sim', 'error' ], function( sim, error ) {
     function Atom() {
         this.unselect = function() {
             this.selected = false;
+            $('#display-atom-' + this.id).remove();
         }
-
+        this.select = function() {
+            this.selected = true;
+            $('#display').append('<div id="display-atom-' + this.id + '"><h3>ATOM #<span class="atom-id"></span></h3><p>Radius: <span class="atom-radius"></span></p><p>Coordinates: (<span class="atom-x"></span>, <span class="atom-y"></span>)</p><p>Direction: <span class="atom-direction"></span>&deg;</p><p>Speed: <span class="atom-speed"></span> px/s</p></div>');
+        }
+        this.toggleSelected = function() {
+            if (this.selected) {
+                this.unselect();
+            } else {
+                this.select();
+            }
+        }
         this.setRandomPosition = function() {
             var minX = this.radius;
             var maxX = sim.getW() - this.radius;
@@ -176,11 +187,10 @@ define([ 'sim', 'error' ], function( sim, error ) {
                 return;
             }
 
-            this.selectAtom( newlySelectedAtom );
+            this.toggleSelectAtom( newlySelectedAtom );
         },
-        selectAtom: function( newlySelectedAtom ) {
-            this.unselectAtoms();
-            newlySelectedAtom.selected = true;
+        toggleSelectAtom: function( newlySelectedAtom ) {
+            newlySelectedAtom.toggleSelected();
             this.drawAtoms();
 
             $('#display').removeClass( 'hidden' );
@@ -189,6 +199,8 @@ define([ 'sim', 'error' ], function( sim, error ) {
             for (var i = 0; i<atoms.length; i++ ) {
                 atoms[i].unselect();
             }
+
+            $('#display').removeClass( 'hidden' );
         },
         moveAtoms: function() {
             for ( var i = 0; i < atoms.length; i++ ) {

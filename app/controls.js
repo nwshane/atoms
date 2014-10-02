@@ -98,7 +98,7 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
 
         for ( var i = 0; i < atoms.length; i++ ) {
             if ( atoms[i].contains( x, y )) {
-                atom.selectAtom( atoms[i] );
+                atom.toggleSelectAtom( atoms[i] );
             }
         }
 
