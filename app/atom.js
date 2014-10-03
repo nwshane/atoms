@@ -119,7 +119,7 @@ define([ 'sim', 'error' ], function( sim, error ) {
         this.move = function() {
             var intervalLengthMs = sim.getIntervalLengthMs();
             this.x += intervalLengthMs/1000 * this.speed * Math.cos( this.direction );
-            this.y += intervalLengthMs/1000 * this.speed * Math.sin( this.direction );
+            this.y -= intervalLengthMs/1000 * this.speed * Math.sin( this.direction );
         };
 
         this.id = idIterator;
