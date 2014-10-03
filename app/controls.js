@@ -1,4 +1,12 @@
-define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, sim, atom, collide, display, input) {
+define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input', 'toggleControls'], function ($, sim, atom, collide, display, input, toggleControls) {
+    $('#toggle-controls').click(function() {
+        toggleControls.togglePanel();
+    });
+
+    $(document).bind('keyup', 't', function () {
+        toggleControls.togglePanel();
+    });
+
     var interval;
     var playing = false;
 
@@ -32,7 +40,6 @@ define([ 'jquery', 'sim', 'atom', 'collide', 'display', 'input'], function ($, s
     });
 
     function createNewInstance() {
-        var ctx = sim.getCtx();
         collide.collide();
         atom.moveAtoms();
         atom.drawAtoms();

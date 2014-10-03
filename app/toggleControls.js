@@ -12,25 +12,6 @@ define([ 'jquery' ], function( $ ){
         $('html').css({ cursor: '' });
     }
 
-    function togglePanel() {
-        makeToggleButtonVisible();
-        $('#togglable-controls').toggleClass('hidden');
-
-        hidden = !hidden;
-
-        if (hidden) {
-            beginToggleButtonFade();
-        }
-    }
-
-    $('#toggle-controls').click(function() {
-        togglePanel();
-    });
-
-    $(document).bind('keydown', 't', function () {
-        togglePanel();
-    });
-
     function beginToggleButtonFade() {
         if ( $('#togglable-controls').hasClass('hidden')) {
             fadeTimeout = setTimeout( function(){
@@ -48,5 +29,18 @@ define([ 'jquery' ], function( $ ){
     });
 
     beginToggleButtonFade();
+
+    return {
+        togglePanel: function() {
+            makeToggleButtonVisible();
+            $('#togglable-controls').toggleClass('hidden');
+
+            hidden = !hidden;
+
+            if (hidden) {
+                beginToggleButtonFade();
+            }
+        }
+    }
 
 });
