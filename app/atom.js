@@ -27,7 +27,11 @@ define([ 'sim', 'error' ], function( sim, error ) {
             if (this.selected) {
                 this.unselect();
             } else {
-                this.select();
+                if ( $('#display').children().length >= 4 ) {
+                    error.create('Unable to select more than four atoms at a time.');
+                } else {
+                    this.select();
+                }
             }
         }
         this.setRandomPosition = function() {
