@@ -1,4 +1,4 @@
-define([ 'jquery', 'error' ], function( $, error ) {
+define([ 'jquery', 'hotkeys', 'error' ], function( $, hotkeys, error ) {
     var inputKeyupFunction;
 
     function runKeyup() {
