@@ -14,6 +14,13 @@ define([ 'sim', 'error' ], function( sim, error ) {
         return (Math.random() * (1 + max - min)) + min;
     }
 
+    function removeAtom(index) {
+        if (atoms[index].selected) {
+            atoms[index].unselect();
+        }
+        atoms.splice( index, 1 );
+    }
+
     function Atom() {
         this.unselect = function() {
             this.selected = false;
@@ -181,7 +188,11 @@ define([ 'sim', 'error' ], function( sim, error ) {
             }
         },
         removeAllAtoms: function() {
-            atoms = [];
+            var numAtoms = atoms.length;
+
+            for ( var i = numAtoms - 1; i >= 0; i-- ) {
+                removeAtom(i);
+            }
         },
         toggleSelectAtom: function( newlySelectedAtom ) {
             newlySelectedAtom.toggleSelected();
