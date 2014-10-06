@@ -2,7 +2,3 @@
 AtomSimulation.iml
 
 bower_components/*
-!bower_components/jquery.hotkeys
-
-bower_components/jquery.hotkeys/*
-!bower_components/jquery.hotkeys/jquery.hotkeys.js

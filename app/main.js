@@ -3,6 +3,9 @@ requirejs.config({
     paths: {
         jquery: '../bower_components/jquery/dist/jquery.min',
         hotkeys: '../bower_components/jquery.hotkeys/jquery.hotkeys'
+    },
+    shim: {
+        hotkeys: ['jquery']
     }
 });
 
