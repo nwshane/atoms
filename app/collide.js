@@ -40,9 +40,9 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
          --> MAKE SURE THAT ATAN YIELDS DIRECTIONS BETWEEN 0 AND 360.
          */
 
-        var forceDirection1 = Math.atan(( atom1.y - atom2.y )/( atom1.x - atom2.x ));
+        var forceDirection1 = -1 * Math.atan(( atom1.y - atom2.y )/( atom1.x - atom2.x ));
 
-        if ( atom1.x - atom2.x < 0 ) {
+        if ( atom1.x - atom2.x > 0 ) {
             forceDirection1 += Math.PI;
         }
 
