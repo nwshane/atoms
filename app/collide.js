@@ -106,12 +106,12 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
         // the inverse tangent function. The below if statement corrects that error.
         if ( modFinalXVelocity1 < 0 )
         {
-            modFinalDirection1 += 180;
+            modFinalDirection1 += Math.PI;
         }
 
         if ( modFinalXVelocity2 < 0 )
         {
-            modFinalDirection2 += 180;
+            modFinalDirection2 += Math.PI;
         }
 
         /**
@@ -129,7 +129,7 @@ define([ 'atom', 'sim' ], function( atom, sim ) {
          7. Use the velocities of the atoms to find the final speeds (which are the same
          regardless of the frame of reference).
 
-         --> The equation for the new speed use the Pythagorean Theorem, a^2 + b^2 = c^2
+         --> The equation for the new speed use the Pythagorean Theorem, sqrt(a^2 + b^2) = c^2
          */
 
         var finalSpeed1 = Math.sqrt( modFinalXVelocity1 * modFinalXVelocity1 + modInitialYVelocity1 * modInitialYVelocity1 );
