@@ -66,11 +66,18 @@ canvas {
 
 }
 
-#togglable-controls, .atom-display {
+#sim-controls-play {
+    position: absolute;
+    left: 50%;
+    margin-left: -85px;
+    bottom: 3em;
+}
+
+#sim-controls-other, .atom-display {
     border: 1px solid black;
 }
 
-#togglable-controls {
+#sim-controls-other {
     padding: 10px;
 }
 
