@@ -27,8 +27,7 @@
 <div id="controls">
     <button id="toggle-controls" class="fade" type="button">Toggle Controls <span class="shortcut">t</span></button>
     <div id="sim-controls-other" class="togglable panel">
-        <button id="next-instance" type="button">Next Instance <span class="shortcut">n</span></button>
-        <br>
+        <p>Play: <span class="shortcut">spacebar</span><br>Next: <span class="shortcut">n</span></p>
         <button id="create-atoms" type="button">Create Atoms <span class="shortcut">c</span></button>
         <br>
         <button id="reset-simulation" type="button">Reset Simulation <span class="shortcut">r</span></button>
@@ -39,8 +38,9 @@
     </div>
 </div>
 
-<div id="sim-controls-play" class="fade">
-    <button id="play-pause" type="button">Play Simulation <span class="shortcut">spacebar</span></button>
+<div id="sim-controls-play" class="togglable">
+    <button id="play-pause" type="button">&#9658;</button>
+    <button id="next-instance" type="button"><span>&gt;</span>&gt;</button>
 </div>
 
 <div id="display" class="panel"></div>

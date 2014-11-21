@@ -24,10 +24,10 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
         var $button = $('#play-pause');
         if (playing) {
             beginInterval();
-            $button.html('Pause Simulation <span class="shortcut">spacebar</span>');
+            $button.html('||');
         } else {
             stopInterval();
-            $button.html('Play Simulation <span class="shortcut">spacebar</span>');
+            $button.html('&#9658;');
         }
     }
 

@@ -69,8 +69,28 @@ canvas {
 #sim-controls-play {
     position: absolute;
     left: 50%;
-    margin-left: -85px;
+    margin-left: -25px;
     bottom: 3em;
+}
+
+#sim-controls-play button {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 5em;
+    border: none;
+    background-color: inherit;
+}
+
+#play-pause {
+    width: 1em;
+}
+
+#next-instance {
+    padding-bottom: .3em;
+}
+
+#next-instance span {
+    letter-spacing: -.3em;
 }
 
 #sim-controls-other, .atom-display {
