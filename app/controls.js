@@ -7,6 +7,18 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
         toggleControls.togglePanel();
     });
 
+    function previousInstance() {
+        createNewInstance(true);
+    }
+
+    $('#previous-instance').click(function () {
+        previousInstance();
+    });
+
+    $(document).bind('keydown', 'p', function () {
+        previousInstance();
+    });
+
     var interval;
     var playing = false;
 
@@ -39,9 +51,11 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
         playPause();
     });
 
-    function createNewInstance() {
+    function createNewInstance(rewind) {
+        if (rewind) {atom.reverseDirectionAll();}
         collide.collide();
         atom.moveAtoms();
+        if (rewind) {atom.reverseDirectionAll();}
         atom.drawAtoms();
         display.update();
     }

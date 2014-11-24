@@ -215,6 +215,11 @@ define([ 'sim', 'error' ], function( sim, error ) {
             for ( var i = 0; i < atoms.length; i++ ) {
                 atoms[i].draw();
             }
+        },
+        reverseDirectionAll: function() {
+            $.each(atoms, function(i, a) {
+                a.changeDirection(a.direction + Math.PI);
+            });
         }
     }
 });
