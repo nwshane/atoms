@@ -39,9 +39,8 @@ canvas {
     position: absolute;
 }
 
-#controls {
+#top-left {
     position: absolute;
-    width: 10%;
 }
 
 #input-window {
