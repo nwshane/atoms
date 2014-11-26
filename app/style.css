@@ -124,6 +124,15 @@ canvas {
 
 
 /* Shortcuts */
+#shortcuts {
+    position: absolute;
+    top: 50%;
+    margin-top: -160px;
+    left: 50%;
+    margin-left: -80px;
+    border: 1px solid;
+}
+
 #shortcuts ul {
     list-style: none;
     padding: 10px;
