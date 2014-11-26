@@ -133,6 +133,10 @@ canvas {
     border: 1px solid;
 }
 
+#shortcuts h3 {
+    text-align: center;
+}
+
 #shortcuts ul {
     list-style: none;
     padding: 10px;

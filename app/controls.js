@@ -7,6 +7,24 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
         toggleControls.togglePanel();
     });
 
+    function toggleShortcuts() {
+        if ($('#shortcuts').hasClass('hidden')) {
+            $('#shortcuts').removeClass('hidden');
+            $('#toggle-shortcuts').text('Hide Shortcuts');
+        } else {
+            $('#shortcuts').addClass('hidden');
+            $('#toggle-shortcuts').text('Show Shortcuts');
+        }
+    }
+
+    $('#toggle-shortcuts').click(function() {
+        toggleShortcuts();
+    });
+
+    $(document).bind('keyup', 'h', function () {
+        toggleShortcuts();
+    });
+
     function previousInstance() {
         createNewInstance(true);
     }
