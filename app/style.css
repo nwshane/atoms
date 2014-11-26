@@ -71,7 +71,7 @@ canvas {
 #sim-controls-play {
     position: absolute;
     left: 50%;
-    margin-left: -125px;
+    margin-left: -100px;
     bottom: 3em;
 }
 
