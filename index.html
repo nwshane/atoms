@@ -23,19 +23,35 @@
 
 <canvas>A simulation of atoms.</canvas>
 
-<div id="controls">
+<div id="menu">
     <button id="toggle-controls" class="fadeout" type="button">Hide <span class="shortcut">t</span></button>
+    <button id="toggle-shortcuts" class="togglable" type="button">Show Shortcuts</button>
+</div>
+<div id="controls">
     <div id="sim-controls-other" class="togglable panel">
-        <p>Previous: <span class="shortcut">p</span><br>Play: <span class="shortcut">spacebar</span><br>Next: <span class="shortcut">n</span></p>
-        <button id="create-atoms" type="button">Create Atoms <span class="shortcut">c</span></button>
+        <button id="create-atoms" type="button">Create Atoms</button>
         <br>
-        <button id="reset-simulation" type="button">Reset Simulation <span class="shortcut">r</span></button>
+        <button id="reset-simulation" type="button">Reset Simulation</button>
         <br>
-        <button id="select-unselect-atom" type="button">Select/Unselect Atom <span class="shortcut">s</span></button>
+        <button id="select-unselect-atom" type="button">Select/Unselect Atom</button>
         <br>
-        <button id="unselect-atoms" type="button">Unselect Atoms <span class="shortcut">u</span></button>
+        <button id="unselect-atoms" type="button">Unselect Atoms</button>
+    </div>
+    <div id="shortcuts" class="togglable">
+        <ul>
+            <li>Show/hide: <span class="shortcut">t</span></li>
+            <li>Previous: <span class="shortcut">p</span></li>
+            <li>Play: <span class="shortcut">spacebar</span>
+            <li>Next: <span class="shortcut">n</span></li>
+            <li>Create Atoms: <span class="shortcut">c</span></li>
+            <li>Reset Simulation: <span class="shortcut">r</span></li>
+            <li>Select/Unselect Atom: <span class="shortcut">s</span></li>
+            <li>Unselect Atoms: <span class="shortcut">u</span></li>
+        </ul>
     </div>
 </div>
+
+
 
 <div id="sim-controls-play" class="togglable">
     <button id="previous-instance" type="button">&#60;&#60;</button>

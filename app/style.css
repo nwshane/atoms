@@ -101,7 +101,6 @@ canvas {
 
 #sim-controls-other {
     padding: 10px;
-    padding-top: 30px;
 }
 
 #display {
@@ -111,7 +110,7 @@ canvas {
 }
 
 #toggle-controls {
-    position: absolute;
+    /*position: absolute;*/
 }
 
 .atom-display h3 {
@@ -120,6 +119,13 @@ canvas {
 
 .hidden {
     display: none;
+}
+
+
+/* Shortcuts */
+#shortcuts ul {
+    list-style: none;
+    padding: 10px;
 }
 
 span.shortcut {
