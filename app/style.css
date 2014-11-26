@@ -101,12 +101,17 @@ canvas {
 
 #sim-controls-other {
     padding: 10px;
+    padding-top: 30px;
 }
 
 #display {
     position: absolute;
     right: 1em;
     top: 1em;
+}
+
+#toggle-controls {
+    position: absolute;
 }
 
 .atom-display h3 {
