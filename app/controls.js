@@ -17,6 +17,10 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
         }
     }
 
+    $('#close-shortcuts').click(function() {
+        toggleShortcuts();
+    });
+
     $('#toggle-shortcuts').click(function() {
         toggleShortcuts();
     });

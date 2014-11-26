@@ -65,7 +65,6 @@ canvas {
 .atom-display {
     line-height: 0.5em;
     padding: 0 10px;
-
 }
 
 #sim-controls-play {
@@ -110,10 +109,6 @@ canvas {
     top: 1em;
 }
 
-#toggle-controls {
-    /*position: absolute;*/
-}
-
 .atom-display h3 {
     text-align: center;
 }
@@ -121,7 +116,6 @@ canvas {
 .hidden {
     display: none;
 }
-
 
 /* Shortcuts */
 #shortcuts {
@@ -140,6 +134,12 @@ canvas {
 #shortcuts ul {
     list-style: none;
     padding: 10px;
+}
+
+#close-shortcuts {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 span.shortcut {
