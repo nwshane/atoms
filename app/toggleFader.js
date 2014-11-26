@@ -6,9 +6,9 @@ define([ 'jquery' ], function( $ ){
     function makeToggleButtonVisible() {
         clearTimeout( fadeTimeout );
 
-        $( '.fade').stop( true );
-        $( '.fade').css('display', '');
-        $( '.fade').css('opacity', '');
+        $( '.fadeout').stop( true );
+        $( '.fadeout').css('display', '');
+        $( '.fadeout').css('opacity', '');
 
         $('html').css({ cursor: '' });
     }
@@ -16,7 +16,7 @@ define([ 'jquery' ], function( $ ){
     function beginToggleButtonFade() {
         if ( $('.togglable').hasClass('hidden')) {
             fadeTimeout = setTimeout( function(){
-                $( '.fade' ).fadeOut(fadeOutSpeed, function() {
+                $( '.fadeout' ).fadeOut(fadeOutSpeed, function() {
                     $('html').css({ cursor: 'none' });
                 });
             }, 1000);

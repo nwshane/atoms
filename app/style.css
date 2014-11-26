@@ -6,6 +6,7 @@ html, body {
     border: 0;
     font-size: 12px;
     position: relative;
+    color: black;
 
     /* No scroll bars */
     overflow: hidden;
@@ -16,7 +17,10 @@ hgroup {
     position: absolute;
     bottom: 1.5em;
     right: 2em;
-    line-height: 0.5em;
+}
+
+h1, h2 {
+    line-height: 0em;
 }
 
 h1 {
@@ -36,8 +40,6 @@ canvas {
 }
 
 #controls {
-    top: 1em;
-    left: 1em;
     position: absolute;
     width: 10%;
 }
