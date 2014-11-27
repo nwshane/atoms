@@ -17,6 +17,7 @@ hgroup {
     position: absolute;
     bottom: 1.5em;
     right: 2em;
+    z-index: 1;
 }
 
 h1, h2 {
