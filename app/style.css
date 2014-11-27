@@ -6,7 +6,7 @@ html, body {
     border: 0;
     font-size: 12px;
     position: relative;
-    color: black;
+    color: #BD9100;
 
     /* No scroll bars */
     overflow: hidden;
@@ -123,7 +123,7 @@ canvas {
     margin-top: -160px;
     left: 50%;
     margin-left: -80px;
-    border: 1px solid;
+    border: 1px solid black;
 }
 
 #shortcuts h3 {

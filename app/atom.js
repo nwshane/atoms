@@ -93,8 +93,8 @@ define([ 'sim', 'error' ], function( sim, error ) {
         }
 
         this.fillAtom = function( ctx ) {
+            ctx.fillStyle = '#2B2B2B';
             ctx.beginPath();
-            ctx.fillStyle = this.color;
             ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
             ctx.fill();
         }
@@ -111,7 +111,6 @@ define([ 'sim', 'error' ], function( sim, error ) {
         }
 
         this.drawTarget = function( ctx ) {
-            ctx.fillStyle = 'red';
             this.drawCircle( ctx, this.radius * 1.5 );
             this.drawCircle( ctx, this.radius * 2 );
             this.drawCircle( ctx, this.radius * 3 );
@@ -137,7 +136,6 @@ define([ 'sim', 'error' ], function( sim, error ) {
         idIterator++;
         this.radius = random( minRadius, maxRadius );
         this.mass = Math.PI * this.radius * this.radius;
-        this.color = "rgb(0,0,0)";
         this.speed = random ( minSpeed, maxSpeed );
         this.direction = random( 0, 2 * Math.PI );
         this.selected = false;
