@@ -103,6 +103,10 @@ canvas {
     margin: 0px;
 }
 
+#sim-controls-other button {
+    width: 13em;
+}
+
 #display {
     position: absolute;
     right: 1em;
