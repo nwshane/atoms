@@ -40,9 +40,9 @@ define([ 'jquery' ], function( $ ){
 
             if (hidden) {
                 beginToggleButtonFade();
-                $('#toggle-controls').text('Show')
+                $('#toggle-all').text('Show')
             } else {
-                $('#toggle-controls').text('Hide')
+                $('#toggle-all').text('Hide')
             }
         }
     }

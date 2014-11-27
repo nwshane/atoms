@@ -1,5 +1,5 @@
 define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'toggleFader'], function ($, hotkeys, sim, atom, collide, display, input, toggleControls) {
-    $('#toggle-controls').click(function() {
+    $('#toggle-all').click(function() {
         toggleControls.togglePanel();
     });
 

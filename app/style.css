@@ -37,7 +37,7 @@ canvas {
 }
 
 button {
-
+    background-color: #eaeaea;
 }
 
 #toggle-headers-and-panels {
@@ -115,6 +115,15 @@ button {
 
 .hidden {
     display: none;
+}
+
+/* Menu */
+#toggle-all {
+    width: 4em;
+}
+
+#toggle-shortcuts {
+    width: 9em;
 }
 
 /* Shortcuts */
