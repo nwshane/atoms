@@ -93,7 +93,7 @@ define([ 'sim', 'error' ], function( sim, error ) {
         }
 
         this.fillAtom = function( ctx ) {
-            ctx.fillStyle = '#2B2B2B';
+            ctx.fillStyle = '#444343';
             ctx.beginPath();
             ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI, true );
             ctx.fill();

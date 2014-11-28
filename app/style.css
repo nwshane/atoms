@@ -58,9 +58,10 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 12px;
+    font-size: 17px;
     position: relative;
-    color: #BD9100;
+    color: #444343;
+    background-color: #FCF9F0;
 
     /* No scroll bars */
     overflow: hidden;
@@ -79,10 +80,10 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.6em;
 }
 h2 {
-    font-size: 1em;
+    font-size: .8em;
 }
 
 canvas {
@@ -91,7 +92,7 @@ canvas {
 }
 
 button {
-    background-color: #eaeaea;
+    background-color: #ECE389;
 }
 
 #toggle-headers-and-panels {
@@ -125,27 +126,21 @@ button {
     position: absolute;
     left: 50%;
     margin-left: -100px;
-    bottom: 3em;
+    bottom: -4em;
+    background-color: #ECE389;
+    width: 8em;
+    height: 8em;
+    padding-top: 1.6em;
+    padding-left: 1.25em;
+
+    /* Make into circle */
+    -webkit-border-radius: 6em;
+    -moz-border-radius: 6em;
+    border-radius: 6em;
 }
 
 #sim-controls-play button {
-    text-align: center;
-    vertical-align: middle;
-    font-size: 5em;
     border: none;
-    background-color: inherit;
-}
-
-#play-pause {
-    width: 1em;
-}
-
-#next-instance, #previous-instance {
-    padding-bottom: .3em;
-}
-
-#next-instance:first-letter, #previous-instance:first-letter {
-    letter-spacing: -.3em;
 }
 
 .atom-display {
