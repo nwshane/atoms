@@ -58,10 +58,10 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
         var $button = $('#play-pause');
         if (playing) {
             beginInterval();
-            $button.html('<img src="assets/pause.gif" alt="Play/Pause Button">');
+            $button.html('<img src="assets/pause.png" alt="Play/Pause Button">');
         } else {
             stopInterval();
-            $button.html('<img src="assets/play.gif" alt="Play/Pause Button">');
+            $button.html('<img src="assets/play.png" alt="Play/Pause Button">');
         }
     }
 
