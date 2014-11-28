@@ -202,8 +202,6 @@ h2 {
     bottom: -4em;
     width: 8em;
     height: 8em;
-    padding-top: 1.4em;
-    padding-left: 1.4em;
 
     /* Make into circle */
     -webkit-border-radius: 6em;
@@ -213,6 +211,25 @@ h2 {
 
 #sim-controls-play button {
     padding: 0.3em;
+}
+
+#previous-instance {
+    position: absolute;
+    top: 1.7em;
+    left: 1.4em;
+}
+
+#play-pause {
+    position: absolute;
+    top: 1.55em;
+    margin-left: -.65em;
+    left: 50%;
+}
+
+#next-instance {
+    position: absolute;
+    top: 1.7em;
+    right: 1.4em;
 }
 
 /* Menu */
