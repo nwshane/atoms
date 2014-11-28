@@ -71,7 +71,7 @@ canvas {
 }
 
 button {
-    border: 1px solid black;
+    border: 0px;
 }
 
 #input-window {
@@ -98,7 +98,7 @@ html, body {
     opacity: .95;
 }
 
-#errors, button {
+#errors, #top-left, button {
     background-color: transparent;
 }
 
@@ -107,20 +107,21 @@ html, body {
 
 #top-left {
     position: absolute;
-    background-color: transparent;
 }
 
 #sim-controls-other {
-    margin: 1em;
-    border: 1px solid black;
-    border-radius: 1em;
-    overflow: hidden;
-    width: 11.9em;
+    margin-top: 1em;
+    display: inline-block;
 }
 
 #sim-controls-other button {
     width: 12em;
-    border-left: 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, .8);
+    display: list-item;
+}
+
+#sim-controls-other button:last-child {
+    border-bottom: 0px;
 }
 
 #create-atoms {
@@ -189,11 +190,11 @@ h2 {
     border-radius: 6em;
 }
 
-#sim-controls-play button {
-    border: none;
-}
-
 /* Menu */
+
+#menu button:first-child {
+    border-right: 1px solid rgba(255, 255, 255, .8);
+}
 
 #toggle-all {
     width: 4em;
