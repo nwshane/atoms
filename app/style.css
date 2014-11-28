@@ -76,18 +76,10 @@ button, div {
     background-color: #ECE389;
 }
 
-#top-left {
-    position: absolute;
-}
-
 #input-window {
     position: absolute;
     bottom: 1em;
     left: 1em;
-}
-
-#sim-controls-other button {
-    width: 13em;
 }
 
 #errors {
@@ -97,6 +89,21 @@ button, div {
     color: red;
     font-size: 1.4em;
     background-color: #FCF9F0;
+}
+
+/* Top left buttons */
+
+#top-left {
+    position: absolute;
+    background-color: #FCF9F0;
+}
+
+#sim-controls-other {
+    background-color: #FCF9F0;
+}
+
+#sim-controls-other button {
+    width: 13em;
 }
 
 /* Header */
@@ -167,6 +174,10 @@ h2 {
 }
 
 /* Menu */
+
+#menu {
+    background-color: #FCF9F0;
+}
 
 #toggle-all {
     width: 4em;
