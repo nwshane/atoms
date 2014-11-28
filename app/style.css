@@ -104,11 +104,19 @@ button {
 #sim-controls-other {
     margin: 1em;
     background-color: #FCF9F0;
-    border-radius: 20em;
+    border: 1px solid black;
+    border-radius: 1em;
+    overflow: hidden;
+    width: 11.9em;
 }
 
 #sim-controls-other button {
-    width: 13em;
+    width: 12em;
+    border-left: 0px;
+}
+
+#create-atoms {
+    border-top: 0px;
 }
 
 /* Header */
