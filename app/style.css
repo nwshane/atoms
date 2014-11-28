@@ -92,6 +92,10 @@ button, .text-content {
     font-size: 1.4em;
 }
 
+#errors p {
+    margin-top: 0.5em;
+}
+
 .text-content {
     line-height: 1.6em;
 }
