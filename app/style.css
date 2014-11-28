@@ -74,6 +74,10 @@ button {
     border: 0px;
 }
 
+button, .text-content {
+    padding: .5em;
+}
+
 #input-window {
     position: absolute;
     bottom: 1em;
@@ -88,6 +92,15 @@ button {
     font-size: 1.4em;
 }
 
+.text-content {
+    line-height: 1.6em;
+}
+
+.text-content h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
 /* Colors */
 html, body {
     background-color: #FCF9F0;
@@ -99,7 +112,7 @@ html, body {
 }
 
 #menu {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.65);
     color: white;
 }
 
@@ -164,15 +177,17 @@ h2 {
 }
 
 .atom-display {
-    line-height: 1.6em;
-    padding: 10px;
-    border: 1px solid black;
+    width: 11.5em;
+    border-top: 1px solid rgba(255, 255, 255, .8);
 }
 
-.atom-display h3 {
-    text-align: center;
-    font-weight: bold;
+#display div:first-child {
+    border-top: 0px;
 }
+
+#display {}
+
+
 
 .hidden {
     display: none;
@@ -187,8 +202,8 @@ h2 {
     bottom: -4em;
     width: 8em;
     height: 8em;
-    padding-top: 1.6em;
-    padding-left: 1.25em;
+    padding-top: 1.4em;
+    padding-left: 1.4em;
 
     /* Make into circle */
     -webkit-border-radius: 6em;
@@ -196,10 +211,14 @@ h2 {
     border-radius: 6em;
 }
 
+#sim-controls-play button {
+    padding: 0.3em;
+}
+
 /* Menu */
 
 #menu button:first-child {
-    border-right: 1px solid rgba(255, 255, 255, .8);
+    border-right: 1px solid rgba(255, 255, 255, .5);
 }
 
 #toggle-all {
@@ -215,14 +234,9 @@ h2 {
 #shortcuts {
     position: absolute;
     top: 50%;
-    margin-top: -100px;
+    margin-top: -10em;
     left: 50%;
-    margin-left: -100px;
-    border: 1px solid black;
-}
-
-#shortcuts h3 {
-    text-align: center;
+    margin-left: -6.5em;
 }
 
 #shortcuts ul {
@@ -232,8 +246,10 @@ h2 {
 
 #close-shortcuts {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: .2em;
+    right: .2em;
+    padding: 0;
+    margin-top: -.6em;
 }
 
 span.shortcut {
