@@ -61,7 +61,6 @@ html, body {
     font-size: 17px;
     position: relative;
     color: #444343;
-    background-color: #FCF9F0;
 
     /* No scroll bars */
     overflow: hidden;
@@ -69,10 +68,6 @@ html, body {
 
 canvas {
     position: absolute;
-}
-
-button, div {
-    background-color: #ECE389;
 }
 
 button {
@@ -91,8 +86,22 @@ button {
     right: 11em;
     color: red;
     font-size: 1.4em;
+}
+
+/* Colors */
+html, body {
     background-color: #FCF9F0;
 }
+
+#menu, #sim-controls-other, #sim-controls-play, .atom-display, #shortcuts {
+    background-color: #ECE389;
+    opacity: .95;
+}
+
+#errors, button {
+    background-color: transparent;
+}
+
 
 /* Top left buttons */
 
@@ -103,7 +112,6 @@ button {
 
 #sim-controls-other {
     margin: 1em;
-    background-color: #FCF9F0;
     border: 1px solid black;
     border-radius: 1em;
     overflow: hidden;
@@ -170,7 +178,6 @@ h2 {
     left: 50%;
     margin-left: -100px;
     bottom: -4em;
-    background-color: #ECE389;
     width: 8em;
     height: 8em;
     padding-top: 1.6em;
@@ -187,10 +194,6 @@ h2 {
 }
 
 /* Menu */
-
-#menu {
-    background-color: inherit;
-}
 
 #toggle-all {
     width: 4em;
