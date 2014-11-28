@@ -93,9 +93,14 @@ html, body {
     background-color: #FCF9F0;
 }
 
-#menu, #sim-controls-other, #sim-controls-play, .atom-display, #shortcuts {
+#sim-controls-other, #sim-controls-play, .atom-display, #shortcuts {
     background-color: #ECE389;
     opacity: .95;
+}
+
+#menu {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
 }
 
 #errors, #top-left, button {
@@ -115,9 +120,10 @@ html, body {
 }
 
 #sim-controls-other button {
-    width: 12em;
+    width: 10em;
     border-bottom: 1px solid rgba(255, 255, 255, .8);
     display: list-item;
+    text-align: left;
 }
 
 #sim-controls-other button:last-child {
