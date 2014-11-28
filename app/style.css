@@ -58,7 +58,7 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 17px;
+    font-size: 16px;
     font-family: 'Roboto Condensed', sans-serif;
     position: relative;
     color: #444343;
@@ -128,12 +128,13 @@ html, body {
 }
 
 #sim-controls-other {
-    margin-top: 1em;
+    margin-top: .5em;
     display: inline-block;
 }
 
 #sim-controls-other button {
     width: 10em;
+    padding-left: 1em;
     border-bottom: 1px solid rgba(255, 255, 255, .8);
     display: list-item;
     text-align: left;
@@ -198,7 +199,7 @@ h2 {
 #sim-controls-play {
     position: absolute;
     left: 50%;
-    margin-left: -100px;
+    margin-left: -4em;
     bottom: -4em;
     width: 8em;
     height: 8em;
@@ -258,7 +259,7 @@ h2 {
     top: 50%;
     margin-top: -10em;
     left: 50%;
-    margin-left: -6.5em;
+    margin-left: -6em;
 }
 
 #shortcuts ul {
