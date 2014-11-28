@@ -67,6 +67,39 @@ html, body {
     overflow: hidden;
 }
 
+canvas {
+    border: 1px solid black;
+    position: absolute;
+}
+
+button {
+    background-color: #ECE389;
+}
+
+#top-left {
+    position: absolute;
+}
+
+#input-window {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+}
+
+#sim-controls-other button {
+    width: 13em;
+}
+
+#errors {
+    position: absolute;
+    bottom: 1em;
+    right: 11em;
+    color: red;
+    font-size: 1.4em;
+}
+
+/* Header */
+
 hgroup {
     margin: 0;
     position: absolute;
@@ -86,41 +119,30 @@ h2 {
     font-size: .8em;
 }
 
-canvas {
-    border: 1px solid black;
-    position: absolute;
-}
+/* Atom info display */
 
-button {
-    background-color: #ECE389;
-}
-
-#toggle-headers-and-panels {
+#display {
     position: absolute;
-}
-
-#top-left {
-    position: absolute;
-}
-
-#input-window {
-    position: absolute;
-    bottom: 1em;
-    left: 1em;
-}
-
-#errors {
-    position: absolute;
-    bottom: 1em;
-    right: 11em;
-    color: red;
-    font-size: 1.4em;
+    right: 1em;
+    top: 1em;
+    background-color: white;
 }
 
 .atom-display {
     line-height: 0.5em;
     padding: 0 10px;
+    border: 1px solid black;
 }
+
+.atom-display h3 {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Bottom center play controls */
 
 #sim-controls-play {
     position: absolute;
@@ -143,30 +165,8 @@ button {
     border: none;
 }
 
-.atom-display {
-    border: 1px solid black;
-}
-
-#sim-controls-other button {
-    width: 13em;
-}
-
-#display {
-    position: absolute;
-    right: 1em;
-    top: 1em;
-    background-color: white;
-}
-
-.atom-display h3 {
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
 /* Menu */
+
 #toggle-all {
     width: 4em;
 }
@@ -176,6 +176,7 @@ button {
 }
 
 /* Shortcuts */
+
 #shortcuts {
     position: absolute;
     top: 50%;
@@ -212,4 +213,3 @@ span.shortcut::before {
 span.shortcut::after {
     content: '}';
 }
-
