@@ -114,12 +114,18 @@ button, .text-content {
     font-weight: bold;
 }
 
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 /* Colors */
 html, body {
     background-color: #FCF9F0;
 }
 
-#sim-controls-other, #sim-controls-play, .atom-display, #shortcuts {
+#sim-controls-other, #sim-controls-play, .atom-display, .center {
     background-color: #ECE389;
     opacity: .95;
 }
@@ -244,8 +250,12 @@ h2 {
     color: white;
 }
 
+#menu button {
+    border-left: 1px solid rgba(255, 255, 255, .5);
+}
+
 #menu button:first-child {
-    border-right: 1px solid rgba(255, 255, 255, .5);
+    border-left: 0px;
 }
 
 #toggle-all {
@@ -256,14 +266,16 @@ h2 {
     width: 9em;
 }
 
+#toggle-about {
+    width: 5em;
+}
+
 /* Shortcuts */
 
 #shortcuts {
-    position: absolute;
-    top: 50%;
     margin-top: -10em;
-    left: 50%;
     margin-left: -6em;
+    width: 12em;
 }
 
 #shortcuts ul {
@@ -289,4 +301,17 @@ span.shortcut::before {
 
 span.shortcut::after {
     content: '}';
+}
+
+/* About */
+
+#about {
+    margin-left: -6em;
+    margin-top: -12em;
+    width: 12em;
+}
+
+strong {
+    font-weight: bold;
+    font-style: italic;
 }

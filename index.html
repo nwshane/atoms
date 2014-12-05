@@ -26,6 +26,7 @@
     <div id="menu" class="fadeout">
         <button id="toggle-all" type="button">Hide</button>
         <button id="toggle-shortcuts" class="togglable" type="button">Show Shortcuts</button>
+        <button id="toggle-about" class="togglable" type="button">About</button>
     </div>
     <div id="sim-controls-other" class="togglable">
         <button id="create-atoms" type="button">Create Atoms</button>
@@ -35,7 +36,7 @@
     </div>
 </div>
 
-<div id="shortcuts" class="hidden text-content">
+<div id="shortcuts" class="center text-content hidden">
     <h3>Shortcuts</h3>
     <ul>
         <li>Show/hide: <span class="shortcut">t</span></li>
@@ -49,6 +50,13 @@
         <li>Unselect Atoms: <span class="shortcut">u</span></li>
     </ul>
     <button id="close-shortcuts" type="button">x</button>
+</div>
+
+<div id="about" class="center text-content hidden">
+    <h3>About</h3>
+    <p>Atom Simulation is a 2d controllable simulation of atoms, written in Javascript for the entertainment of many a physics/chemistry nerd all around the world.</p>
+    <h3>Credits</h3>
+    <p>Creator/Developer: Nathan Shane<br><strong>BIG</strong> thanks to Mariam Kobuladze for the beautiful design.</p>
 </div>
 
 <div id="sim-controls-play" class="togglable">
@@ -65,9 +73,9 @@
 
 <div id="errors"></div>
 
-<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="app/style.css">
 <script data-main="app/main" src="bower_components/requirejs/require.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
 </body>
 </html>

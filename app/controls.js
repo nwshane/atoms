@@ -1,4 +1,23 @@
 define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'toggleFader'], function ($, hotkeys, sim, atom, collide, display, input, toggleControls) {
+    function toggleAbout() {
+        if (!($('#shortcuts').hasClass('hidden'))) {
+            toggleShortcuts();
+        }
+        if ($('#about').hasClass('hidden')) {
+            $('#about').removeClass('hidden')
+        } else {
+            $('#about').addClass('hidden')
+        }
+    }
+
+    $('#toggle-about').click(function() {
+        toggleAbout();
+    });
+
+    $(document).bind('keyup', 'a', function () {
+        toggleAbout();
+    });
+
     $('#toggle-all').click(function() {
         toggleControls.togglePanel();
     });
@@ -8,6 +27,9 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
     });
 
     function toggleShortcuts() {
+        if (!$('#about').hasClass('hidden')) {
+            toggleAbout();
+        }
         if ($('#shortcuts').hasClass('hidden')) {
             $('#shortcuts').removeClass('hidden');
             $('#toggle-shortcuts').text('Hide Shortcuts');
