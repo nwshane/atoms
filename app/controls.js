@@ -39,8 +39,13 @@ define([ 'jquery', 'hotkeys', 'sim', 'atom', 'collide', 'display', 'input', 'tog
         }
     }
 
-    $('#close-shortcuts').click(function() {
-        toggleShortcuts();
+    $('.close-button').click(function(event) {
+        var parentId = event.target.parentElement.id;
+        if (parentId == 'about') {
+            toggleAbout();
+        } else if (parentId == 'shortcuts') {
+            toggleShortcuts();
+        }
     });
 
     $('#toggle-shortcuts').click(function() {
