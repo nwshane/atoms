@@ -1,0 +1,19 @@
+{
+  "name": "atom-simulation",
+  "version": "0.0.1",
+  "description": "A simple physics simulation",
+  "main": "_site/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nwshane/atoms.git"
+  },
+  "author": "Nathan Shane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nwshane/atoms/issues"
+  },
+  "homepage": "https://github.com/nwshane/atoms"
+}
