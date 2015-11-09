@@ -3,3 +3,4 @@ AtomSimulation.iml
 
 bower_components/*
 node_modules/*
+_site/*
