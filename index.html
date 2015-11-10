@@ -1,1 +1,83 @@
-Coming soon
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Atom Simulation</title>
+    <meta name="description" content="A simulation of atoms">
+    <meta name="author" content="Nathan Shane">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<hgroup class="togglable">
+    <h1>Atom Simulation</h1>
+    <h2>Created by Nathan Shane</h2>
+</hgroup>
+
+<canvas>A simulation of atoms.</canvas>
+
+<div id="top-left">
+    <div id="menu" class="fadeout">
+        <button id="toggle-all" type="button">Hide</button>
+        <button id="toggle-shortcuts" class="togglable" type="button">Show Shortcuts</button>
+        <button id="toggle-about" class="togglable" type="button">About</button>
+    </div>
+    <div id="sim-controls-other" class="togglable">
+        <button id="create-atoms" type="button">Create Atoms</button>
+        <button id="select-unselect-atom" type="button">Select/Unselect Atom</button>
+        <button id="unselect-atoms" type="button">Unselect Atoms</button>
+        <button id="reset-simulation" type="button">Reset Simulation</button>
+    </div>
+</div>
+
+<div id="shortcuts" class="center text-content hidden">
+    <h3>Shortcuts</h3>
+    <ul>
+        <li>Show/hide: <span class="shortcut">t</span></li>
+        <li>Show/hide Shortcuts: <span class="shortcut">h</span></li>
+        <li>Show/hide About: <span class="shortcut">a</span></li>
+        <li>Previous: <span class="shortcut">p</span></li>
+        <li>Play: <span class="shortcut">spacebar</span>
+        <li>Next: <span class="shortcut">n</span></li>
+        <li>Create Atoms: <span class="shortcut">c</span></li>
+        <li>Reset Simulation: <span class="shortcut">r</span></li>
+        <li>Select/Unselect Atom: <span class="shortcut">s</span></li>
+        <li>Unselect Atoms: <span class="shortcut">u</span></li>
+    </ul>
+    <button class="close-button" type="button">x</button>
+</div>
+
+<div id="about" class="center text-content hidden">
+    <h3>About</h3>
+    <p>Atom Simulation is a 2d controllable simulation of atoms, written in Javascript for the entertainment of many a physics/chemistry nerd all around the world.</p>
+    <h3>Credits</h3>
+    <p>Creator/Developer: Nathan Shane<br><strong>BIG</strong> thanks to Mariam Kobuladze for the beautiful design.</p>
+    <button class="close-button" type="button">x</button>
+</div>
+
+<div id="sim-controls-play" class="togglable">
+    <button id="previous-instance" type="button"><img src="assets/back.png" alt="Previous Instance Button"></button>
+    <button id="play-pause" type="button"><img src="assets/play.png" alt="Play/Pause Button"></button>
+    <button id="next-instance" type="button"><img src="assets/forward.png" alt="Next Instance Button"></button>
+</div>
+
+<div id="display"></div>
+
+<div id="input-window">
+    <input id="number-input" class="hidden" type="number" size="2">
+</div>
+
+<div id="errors"></div>
+
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="app/style.css">
+<script data-main="app/main" src="bower_components/requirejs/require.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+</body>
+</html>

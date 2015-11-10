@@ -1,0 +1,317 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+/* ATOM SIMULATION Styles begin */
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+    position: relative;
+    color: #444343;
+
+    /* No scroll bars */
+    overflow: hidden;
+}
+
+canvas {
+    position: absolute;
+}
+
+button {
+    border: 0px;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -webkit-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+button, .text-content {
+    padding: .5em;
+}
+
+#input-window {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+}
+
+#errors {
+    position: absolute;
+    bottom: 1em;
+    right: 11em;
+    color: red;
+    font-size: 1.4em;
+}
+
+#errors p {
+    margin-top: 0.5em;
+}
+
+.text-content {
+    line-height: 1.6em;
+}
+
+.text-content h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+/* Colors */
+html, body {
+    background-color: #FCF9F0;
+}
+
+#sim-controls-other, #sim-controls-play, .atom-display, .center {
+    background-color: #ECE389;
+    opacity: .95;
+}
+
+#errors, #top-left, button {
+    background-color: transparent;
+}
+
+
+/* Top left buttons */
+
+#top-left {
+    position: absolute;
+}
+
+#sim-controls-other {
+    margin-top: .5em;
+    display: inline-block;
+}
+
+#sim-controls-other button {
+    width: 10em;
+    padding-left: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, .8);
+    display: list-item;
+    text-align: left;
+}
+
+#sim-controls-other button:last-child {
+    border-bottom: 0px;
+}
+
+#create-atoms {
+    border-top: 0px;
+}
+
+/* Header */
+
+hgroup {
+    margin: 0;
+    position: absolute;
+    bottom: 1.5em;
+    right: 2em;
+    z-index: 1;
+}
+
+h1, h2 {
+    line-height: 1.3em;
+}
+
+h1 {
+    font-size: 1.6em;
+}
+h2 {
+    font-size: .8em;
+}
+
+/* Atom info display */
+
+#display {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+.atom-display {
+    width: 11.5em;
+    border-top: 1px solid rgba(255, 255, 255, .8);
+}
+
+#display div:first-child {
+    border-top: 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Bottom center play controls */
+
+#sim-controls-play {
+    position: absolute;
+    left: 50%;
+    margin-left: -4em;
+    bottom: -4em;
+    width: 8em;
+    height: 8em;
+
+    /* Make into circle */
+    -webkit-border-radius: 6em;
+    -moz-border-radius: 6em;
+    border-radius: 6em;
+}
+
+#sim-controls-play button {
+    padding: 0.3em;
+}
+
+#previous-instance {
+    position: absolute;
+    top: 1.7em;
+    left: 1.4em;
+}
+
+#play-pause {
+    position: absolute;
+    top: 1.55em;
+    margin-left: -.65em;
+    left: 50%;
+}
+
+#next-instance {
+    position: absolute;
+    top: 1.7em;
+    right: 1.4em;
+}
+
+/* Menu */
+
+#menu {
+    background-color: rgba(0, 0, 0, 0.65);
+    color: white;
+}
+
+#menu button {
+    border-left: 1px solid rgba(255, 255, 255, .5);
+}
+
+#menu button:first-child {
+    border-left: 0px;
+}
+
+#toggle-all {
+    width: 4em;
+}
+
+#toggle-shortcuts {
+    width: 9em;
+}
+
+#toggle-about {
+    width: 5em;
+}
+
+/* Shortcuts */
+
+#shortcuts {
+    margin-top: -10em;
+    margin-left: -6em;
+    width: 12em;
+}
+
+#shortcuts ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.close-button {
+    position: absolute;
+    top: .2em;
+    right: .2em;
+    padding: 0;
+    margin-top: -.6em;
+}
+
+span.shortcut {
+    font-style: italic;
+}
+
+span.shortcut::before {
+    content: '{';
+}
+
+span.shortcut::after {
+    content: '}';
+}
+
+/* About */
+
+#about {
+    margin-left: -6em;
+    margin-top: -12em;
+    width: 12em;
+}
+
+strong {
+    font-weight: bold;
+    font-style: italic;
+}
