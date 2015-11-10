@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/nwshane/atoms/issues"
   },
-  "homepage": "https://github.com/nwshane/atoms"
+  "homepage": "https://github.com/nwshane/atoms",
+  "devDependencies": {
+    "connect": "^3.4.0",
+    "serve-static": "^1.10.0"
+  }
 }
