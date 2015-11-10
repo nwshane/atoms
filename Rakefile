@@ -21,7 +21,11 @@ namespace :site do
   desc 'Copy deployed production app to site directory'
   task :copy_from_prod do
     `rm -rf #{site_dir}/`
-    `git clone https://github.com/nwshane/atoms.git -b gh-pages #{site_dir}`
+    `mkdir #{site_dir}`
+
+    Dir.chdir(site_dir) do
+      `git clone https://github.com/nwshane/atoms.git -b gh-pages .`
+    end
   end
 end
 
