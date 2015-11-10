@@ -2,7 +2,7 @@
 namespace :site do
   desc 'Deploy to gh-pages'
   task :deploy do
-    invoke :deploy
+    Rake::Task["site:build"].execute
 
     Dir.chdir(site_dir) do
       `git add -A :/`
@@ -26,7 +26,7 @@ namespace :site do
 end
 
 def site_contents
-  %w( index.html assets app bower_components )
+  %w( index.html assets app bower_components CNAME )
 end
 
 def site_dir
