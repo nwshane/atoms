@@ -6,6 +6,10 @@ task :deploy do
   `rsync --recursive --delete app _site/`
   `rsync --recursive --delete bower_components _site/`
 
+  Dir.chdir('_site') do
+    `find . -not -name 'index.html' -not -name 'app' -not -name 'assets' -not -name 'bower_components' | xargs rm -r`
+  end
+
   # Commit and push in _site directory
   Dir.chdir('_site') do
     `git add -A :/`
